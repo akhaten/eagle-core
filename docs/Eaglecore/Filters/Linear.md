@@ -1,0 +1,1 @@
+::: eaglecore.filters.linear
