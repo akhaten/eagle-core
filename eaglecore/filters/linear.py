@@ -1,39 +1,59 @@
+"""
+# Description
+Linear filters are filters that can used in dicrete convolution
+with some function like 
+[scipy.signal.convolve2d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html) 
+"""
+
 import numpy
-import torch
+import eaglecore.psf
 
 
-def gaussian_filter(size: int, sigma: float, normalize: bool = False) -> torch.Tensor:
-    """Create square gaussian filter
+def gaussian_filter2D(
+    mu_0: float, sigma_0: float, size_0: int,
+    mu_1: float, sigma_1: float, size_1: int
+) -> numpy.ndarray:
+    """Get a gaussian filter 2D
 
-    Params:
-        - size
-        - sigma
-        - normalize
+    Args:
+        mu_0 (float): Mean of axe 0
+        sigma_0 (float): Variance of axe 0
+        size_0 (int): Size of axe 0
+        mu_1 (float): Mean of axe 1
+        sigma_1 (float): Variance of axe 1
+        size_1 (int): Size of axe 1
 
-    Return:
-        - Gaussian filter
+    Returns:
+        Gaussian filter 2D with size/shape of (size_0, size_1) 
     """
-
-    def gaussian2d_psf(sigma: float, x: float | torch.Tensor, y: float | torch.Tensor) -> float | torch.Tensor:
-        exp = torch.exp( - (x**2+y**2) / (2*sigma**2) )
-        return ( 1 / (2*torch.pi*sigma**2) ) * exp
-
-    x, y = torch.meshgrid(
-        *[
-            torch.tensor([ i for i in range(-size//2 + 1, size//2 + 1) ]),
-            torch.tensor([ i for i in range(-size//2 + 1, size//2 + 1) ])
-        ]
+    axe0_values = numpy.arange(
+        start = -size_0//2 + 1, 
+        stop = size_0//2 + 1, 
+        step = 1
     )
     
-    filter = gaussian2d_psf(sigma, x, y)
+    axe1_values = numpy.arange(
+        start = -size_1//2 + 1, 
+        stop = size_1//2 + 1, 
+        step = 1
+    )
     
-    if normalize:
-        filter /= torch.sum(filter)
+    x_0, x_1 = numpy.meshgrid(*[ axe0_values, axe1_values ])
+    
+    filter = eaglecore.psf.gaussian2d(
+        mu_0 = mu_0, sigma_0 = sigma_0, x_0 = x_0,
+        mu_1 = mu_1, sigma_1 = sigma_1, x_1 = x_1 
+    )
 
     return filter
 
-def north() -> torch.Tensor:
-    return torch.tensor(
+def north() -> numpy.ndarray:
+    """Get North filter
+
+    Returns:
+        North filter
+    """
+    return numpy.array(
         [
             [0, 1, 0], 
             [0, -1, 0], 
@@ -41,8 +61,13 @@ def north() -> torch.Tensor:
         ]
     )
 
-def south() -> torch.Tensor:
-    return torch.tensor(
+def south() -> numpy.ndarray:
+    """Get South filter
+
+    Returns:
+        South filter
+    """
+    return numpy.array(
         [
             [0, 0, 0], 
             [0, -1, 0], 
@@ -50,8 +75,13 @@ def south() -> torch.Tensor:
         ]
     )
 
-def west() -> torch.Tensor:
-    return torch.tensor(
+def west() -> numpy.ndarray:
+    """Get West filter
+
+    Returns:
+        West filter
+    """
+    return numpy.array(
         [
             [0, 0, 0], 
             [1, -1, 0], 
@@ -59,8 +89,13 @@ def west() -> torch.Tensor:
         ]
     )
 
-def est() -> torch.Tensor:
-    return torch.tensor(
+def est() -> numpy.ndarray:
+    """Get Est filter
+
+    Returns:
+        Est filter
+    """
+    return numpy.array(
         [
             [0, 0, 0], 
             [0, -1, 1], 
@@ -68,8 +103,13 @@ def est() -> torch.Tensor:
         ]
     )
 
-def laplacian() -> torch.Tensor:
-    return torch.tensor(
+def laplacian() -> numpy.ndarray:
+    """Get Laplacian filter
+    
+    Returns:
+        numpy.ndarray: Laplacian filter
+    """
+    return numpy.array(
         [
             [0, -1, 0],
             [-1, 4, -1],
@@ -77,60 +117,59 @@ def laplacian() -> torch.Tensor:
         ]
     )
 
+def mean_filter(size: numpy.ndarray | tuple) -> numpy.ndarray:
+    """Get Mean filter
 
-def mean_filter(size: int) -> torch.Tensor:
-    """Create mean filter
+    Args:
+        size (numpy.ndarray | tuple): Size of filter
 
-    Params:
-        - size
-
-    Return:
-        - Mean filter
+    Returns:
+        numpy.ndarray: Mean filter
     """
-    filter = torch.ones(size=(size, size))
+    filter = numpy.ones(size=size)
     filter /= size*size
     return filter
 
 
-def roberts_masks() -> torch.Tensor:
-    #TODO : TEST
+# def roberts_masks() -> numpy.ndarray:
+#     #TODO : TEST
  
-    return torch.tensor(
-        [
-            torch.tensor([[-1, 0], [0, 1]]),
-            torch.tensor([[0, -1], [1, 0]])
-        ]
-    )
+#     return numpy.array(
+#         [
+#             numpy.array([[-1, 0], [0, 1]]),
+#             numpy.array([[0, -1], [1, 0]])
+#         ]
+#     )
 
 
-def sobel_masks() -> torch.Tensor:
-    #TODO : TEST
+# def sobel_masks() -> numpy.ndarray:
+#     #TODO : TEST
  
-    return torch.tensor(
-        [
-            torch.tensor([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]),
-            torch.tensor([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
-        ]
-    )
+#     return numpy.array(
+#         [
+#             numpy.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]),
+#             numpy.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
+#         ]
+#     )
 
 
-def kirsh_masks() -> torch.Tensor:
-    #TODO
-    # return torch.Tensor(
-    #     [
-    #         torch.Tensor([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]),
-    #         torch.Tensor([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
-    #     ]
-    # )
-    pass
+# def kirsh_masks() -> numpy.ndarray:
+#     #TODO
+#     # return numpy.ndarray(
+#     #     [
+#     #         numpy.ndarray([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]),
+#     #         numpy.ndarray([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
+#     #     ]
+#     # )
+#     pass
 
 
-def robinson_masks() -> torch.Tensor:
-    #TODO
-    # return torch.Tensor(
-    #     [
-    #         torch.Tensor([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]),
-    #         torch.Tensor([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
-    #     ]
-    # )
-    pass
+# def robinson_masks() -> numpy.ndarray:
+#     #TODO
+#     # return numpy.ndarray(
+#     #     [
+#     #         numpy.ndarray([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]),
+#     #         numpy.ndarray([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
+#     #     ]
+#     # )
+#     pass

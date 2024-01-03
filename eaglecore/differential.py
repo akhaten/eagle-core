@@ -23,6 +23,8 @@ def transposed_difference_finite_circular(array: numpy.ndarray, axis: int) -> nu
     deriv = difference_finite_circular(numpy.flip(array, axis), axis)
     return numpy.flip(deriv, axis)
     
+dfc = difference_finite_circular
+tdfc = transposed_difference_finite_circular
     
 def laplacian2D(array: numpy.ndarray) -> numpy.ndarray:
     

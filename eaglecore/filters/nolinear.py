@@ -2,6 +2,7 @@ import numpy
 # import numpy.fft
 import scipy.signal
 import enum
+import typing
 
 import eaglecore.filters.linear
 
@@ -69,13 +70,6 @@ def non_local_mean(image: numpy.ndarray, sigma: float, size: int) -> numpy.ndarr
    
     return image_d
 
-
-# class Mask(enum.Enum):
-#     NORTH = [[0, 1, 0], [0, -1, 0], [0, 0, 0]]
-#     SOUTH = [[0, 0, 0], [0, -1, 0], [0, 1, 0]]
-#     WEST  = [[0, 0, 0], [1, -1, 0], [0, 0, 0]]
-#     EST   = [[0, 0, 0], [0, -1, 1], [0, 0, 0]]
-
 def anisotropic(image: numpy.ndarray, lamda: float, k: float, nb_iterations: int) -> numpy.ndarray:
 
     # M1 = compute(us, n=20, k=30, lamb=0.1)
@@ -120,26 +114,50 @@ def anisotropic(image: numpy.ndarray, lamda: float, k: float, nb_iterations: int
     return image_n
 
 
-def mean_geometric(image_fft2: numpy.ndarray, kernel_fft2: numpy.ndarray, k: float, s: float) -> numpy.ndarray:
-    #TODO : TEST
-    e1 = 1 / ( numpy.absolute(kernel_fft2) ** s )
-    e2 = numpy.conj(kernel_fft2) / (numpy.absolute(kernel_fft2)**2 + k)
-    e2 = e2 ** (1-s)
-    e3 = e1 * e2
-    return e3 * image_fft2
+# def mean_geometric(image_fft2: numpy.ndarray, kernel_fft2: numpy.ndarray, k: float, s: float) -> numpy.ndarray:
+#     #TODO : TEST
+#     e1 = 1 / ( numpy.absolute(kernel_fft2) ** s )
+#     e2 = numpy.conj(kernel_fft2) / (numpy.absolute(kernel_fft2)**2 + k)
+#     e2 = e2 ** (1-s)
+#     e3 = e1 * e2
+#     return e3 * image_fft2
+
+def wiener(image: numpy.ndarray, kernel: numpy.ndarray, k: float, use_fft: typing.Optional[bool] = False) -> numpy.ndarray:
+    
+    img = numpy.copy(image)
+    ker = numpy.copy(kernel)
+    
+    if use_fft :
+        img = numpy.fft.fftn(img)
+        ker = numpy.fft.fftn(ker)
+    
+    frac = numpy.conj(ker) / (numpy.absolute(ker)**2 + k)
+    
+    return frac * img
+
+def inverse(image: numpy.ndarray, kernel: numpy.ndarray, use_fft: typing.Optional[bool] = False) -> numpy.ndarray:
+    
+    img = numpy.copy(image)
+    ker = numpy.copy(kernel)
+    
+    if use_fft :
+        img = numpy.fft.fftn(img)
+        ker = numpy.fft.fftn(ker)
+        
+    return img / ker
 
 
-def wiener(image_fft2: numpy.ndarray, kernel_fft2: numpy.ndarray, k: float) -> numpy.ndarray:
-    frac = numpy.conj(kernel_fft2) / (numpy.absolute(kernel_fft2)**2 + k)
-    return frac * image_fft2
-
-def inverse(image_fft2: numpy.ndarray, kernel_fft2: numpy.ndarray) -> numpy.ndarray:
-    return image_fft2 / kernel_fft2
-
-
-def pseudo_inverse(image_fft2: numpy.ndarray, kernel_fft2: numpy.ndarray, threshold: float) -> numpy.ndarray:
+def pseudo_inverse(image: numpy.ndarray, kernel: numpy.ndarray, threshold: float, use_fft: typing.Optional[bool] = False) -> numpy.ndarray:
+    
+    img = numpy.copy(image)
+    ker = numpy.copy(kernel)
+    
+    if use_fft :
+        img = numpy.fft.fftn(img)
+        ker = numpy.fft.fftn(ker)
+        
     return numpy.where(
-        threshold <= numpy.abs(kernel_fft2), 
-        image_fft2 / kernel_fft2, 
-        image_fft2
+        threshold <= numpy.absolute(ker), 
+        img / ker, 
+        img
     )
