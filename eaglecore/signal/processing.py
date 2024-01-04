@@ -7,7 +7,7 @@ def normalize(
     new_min: typing.Optional[float] = 0.0,
     new_max: typing.Optional[float] = 1.0
 ) -> numpy.ndarray:
-    """Normalize a signal
+    """Normalize a signal.
 
     Args:
         signal (numpy.ndarray): a signal
@@ -33,9 +33,29 @@ def normalize(
 #     return (numpy.min(red, green, blue) + numpy.max(red, green, blue) ) / 2
 
 def average_method(red: numpy.ndarray, green: numpy.ndarray, blue: numpy.ndarray) -> numpy.ndarray:
+    """Convert RGB image to graylevel with average method.
+
+    Args:
+        red (numpy.ndarray): red channel
+        green (numpy.ndarray): green channel
+        blue (numpy.ndarray): blue channel
+
+    Returns:
+        graylevel image
+    """
     return (red + green + blue) / 3
 
 def luminosity_method(red: numpy.ndarray, green: numpy.ndarray, blue: numpy.ndarray) -> numpy.ndarray:
+    """Convert RGB image to graylevel with luminosity method.
+
+    Args:
+        red (numpy.ndarray): red channel
+        green (numpy.ndarray): green channel
+        blue (numpy.ndarray): blue channel
+
+    Returns:
+        graylevel image
+    """
     return 0.299 * red + 0.587 * green + 0.114 * blue
 
 # def from_rgb(image: numpy.ndarray, method: ConversionMethod) -> numpy.ndarray:
@@ -52,15 +72,28 @@ def luminosity_method(red: numpy.ndarray, green: numpy.ndarray, blue: numpy.ndar
 
 #     return res
 
-def nb_graylevel(grayscale_image: numpy.ndarray) -> int:
-    level_min = numpy.min(grayscale_image)
-    level_max = numpy.max(grayscale_image)
-    return level_max-level_min+1
+# def nb_graylevel(grayscale_image: numpy.ndarray) -> float:
+#     """Get number of graylevel in image
 
-def dynamic_graylevel(grayscale_image: numpy.ndarray) -> int:
-    level_min = numpy.min(grayscale_image)
-    level_max = numpy.max(grayscale_image)
-    return numpy.log2(level_max-level_min)
+#     Args:
+#         grayscale_image (numpy.ndarray): grayscale image
+
+#     Returns:
+#         number of graylevel
+        
+#     Warning:
+#         - You must not apply processing on grayscale image like 
+#             normalization by exemple because image's pixel must
+#             be integers
+#     """
+#     level_min = numpy.min(grayscale_image)
+#     level_max = numpy.max(grayscale_image)
+#     return level_max-level_min+1
+
+# def dynamic_graylevel(grayscale_image: numpy.ndarray) -> float:
+#     level_min = numpy.min(grayscale_image)
+#     level_max = numpy.max(grayscale_image)
+#     return numpy.log2(level_max-level_min)
 
 
 # def binarization(grayscale_image: numpy.ndarray, threshold: int, inf_sup: tuple[int, int] = (0, 1)) -> numpy.ndarray:

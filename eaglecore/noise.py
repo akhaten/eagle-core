@@ -1,8 +1,6 @@
 
 import numpy
-
-# import lasp.metrics
-# import lasp.utils
+import typing
 
 
 import eaglecore.signal.measure
@@ -11,21 +9,21 @@ import eaglecore.signal.processing
 
 def get_awgn(
     signal_power: float, 
-    snr: eaglecore.types.snr | eaglecore.types.snr_db,
-    noise_shape: numpy.ndarray | tuple
-) -> tuple[int, numpy.ndarray]:
+    snr: typing.Union[eaglecore.types.snr, eaglecore.types.snr_db],
+    noise_shape: typing.Union[numpy.ndarray, tuple]
+) -> tuple[float, numpy.ndarray]:
     """Get Additive White Gaussian Noise
 
     Args:
         signal_power (float): power of signal
-        snr (eaglecore.types.snr | eaglecore.types.snr_db): Signal Noise Ratio
-        noise_shape (numpy.ndarray | tuple): shape of noise
+        snr (typing.Union[eaglecore.types.snr, eaglecore.types.snr_db]): Signal Noise Ratio
+        noise_shape (typing.Union[numpy.ndarray, tuple]): shape of noise
 
     Raises:
         TypeError: if snr has bad type
 
     Returns:
-        tuple[int, numpy.ndarray]: power of noise and noise
+        power of noise and noise
     """
 
     if isinstance(snr, eaglecore.types.snr_db):
@@ -43,27 +41,21 @@ def get_awgn(
 
 def additive_white_gaussian_noise(
     signal: numpy.ndarray, 
-    snr: eaglecore.types.snr | eaglecore.types.snr_db
+    snr: typing.Union[eaglecore.types.snr, eaglecore.types.snr_db]
 ) -> numpy.ndarray:
-    
     """Additive White Gaussian Noise (AWGN)
-    
-    Params:
-        - signal: signal
-        - snr : signal to noise ratio (not in db)
+
+    Args:
+        signal (numpy.ndarray): a signal
+        snr (typing.Union[eaglecore.types.snr, eaglecore.types.snr_db]): signal to noise ratio
 
     Returns:
-        Signal noised
+        Noised signal
+        
+    Notes:
+        - You can use `awgn` alias
+        - You could need to normalize your noised image
     """
-
-    # if signal.dtype == numpy.complex64:
-    #     nb_points = len(signal)
-    #     power_signal = sum(numpy.abs(signal)**2) / len(signal) # puissance de l’image 
-    #     power_noise = power_signal/(10**(snr/10)) # % puissance du bruit
-    #     reals = numpy.random.randn(1, nb_points)
-    #     imags = numpy.random.randn(1, nb_points)
-    #     noise = [(numpy.sqrt(power_noise) * numpy.sqrt(1/2) * (reals[0][i] + 1j * imags[0][i])) for i in range(0, N)]# bruit Gaussien 
-    #     return signal + noise
 
     # signal_noised = numpy.array(signal, numpy.double)
     signal_double = signal.astype(numpy.double)
@@ -76,15 +68,18 @@ def additive_white_gaussian_noise(
         noise_shape = signal_double.shape
     )
     
-    signal_noised = signal_double + noise
+    noised_signal = signal_double + noise
 
-    signal_noised = eaglecore.signal.processing.normalize(
-        signal = signal_noised,
-        new_min = 0.0,
-        new_max = 1.0
-    )
+    return noised_signal
 
-    return signal_noised
+# if signal.dtype == numpy.complex64:
+#     nb_points = len(signal)
+#     power_signal = sum(numpy.abs(signal)**2) / len(signal) # puissance de l’image 
+#     power_noise = power_signal/(10**(snr/10)) # % puissance du bruit
+#     reals = numpy.random.randn(1, nb_points)
+#     imags = numpy.random.randn(1, nb_points)
+#     noise = [(numpy.sqrt(power_noise) * numpy.sqrt(1/2) * (reals[0][i] + 1j * imags[0][i])) for i in range(0, N)]# bruit Gaussien 
+#     return signal + noise
 
 # def multiplicative_noise(signal: numpy.ndarray, snr: float) -> numpy.ndarray:
 

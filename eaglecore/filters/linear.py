@@ -1,11 +1,6 @@
-"""
-# Description
-Linear filters are filters that can used in dicrete convolution
-with some function like 
-[scipy.signal.convolve2d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html) 
-"""
-
 import numpy
+import typing
+
 import eaglecore.psf
 
 
@@ -13,7 +8,7 @@ def gaussian_filter2D(
     mu_0: float, sigma_0: float, size_0: int,
     mu_1: float, sigma_1: float, size_1: int
 ) -> numpy.ndarray:
-    """Get a gaussian filter 2D
+    """Get a gaussian filter 2D.
 
     Args:
         mu_0 (float): Mean of axe 0
@@ -48,7 +43,7 @@ def gaussian_filter2D(
     return filter
 
 def north() -> numpy.ndarray:
-    """Get North filter
+    """Get North filter.
 
     Returns:
         North filter
@@ -62,7 +57,7 @@ def north() -> numpy.ndarray:
     )
 
 def south() -> numpy.ndarray:
-    """Get South filter
+    """Get South filter.
 
     Returns:
         South filter
@@ -76,7 +71,7 @@ def south() -> numpy.ndarray:
     )
 
 def west() -> numpy.ndarray:
-    """Get West filter
+    """Get West filter.
 
     Returns:
         West filter
@@ -89,11 +84,11 @@ def west() -> numpy.ndarray:
         ]
     )
 
-def est() -> numpy.ndarray:
-    """Get Est filter
+def east() -> numpy.ndarray:
+    """Get East filter.
 
     Returns:
-        Est filter
+        East filter
     """
     return numpy.array(
         [
@@ -104,10 +99,10 @@ def est() -> numpy.ndarray:
     )
 
 def laplacian() -> numpy.ndarray:
-    """Get Laplacian filter
+    """Get Laplacian filter.
     
     Returns:
-        numpy.ndarray: Laplacian filter
+        Laplacian filter
     """
     return numpy.array(
         [
@@ -117,17 +112,17 @@ def laplacian() -> numpy.ndarray:
         ]
     )
 
-def mean_filter(size: numpy.ndarray | tuple) -> numpy.ndarray:
-    """Get Mean filter
+def mean_filter(size: typing.Union[numpy.ndarray, tuple]) -> numpy.ndarray:
+    """Get Mean filter.
 
     Args:
-        size (numpy.ndarray | tuple): Size of filter
+        size (typing.Union[numpy.ndarray, tuple]): Size of filter
 
     Returns:
-        numpy.ndarray: Mean filter
+        Mean filter
     """
     filter = numpy.ones(size=size)
-    filter /= size*size
+    filter /= numpy.prod(numpy.array(size))
     return filter
 
 

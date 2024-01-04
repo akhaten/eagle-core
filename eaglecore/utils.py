@@ -2,29 +2,28 @@ import numpy
 
 
 
-def circshift(array: numpy.ndarray, shift: numpy.ndarray) -> numpy.ndarray:
-    """Circular Shift
-    Similary to matlab function.
+def circshift(kernel: numpy.ndarray, shift: numpy.ndarray) -> numpy.ndarray:
+    """Apply circular shift similary to circshift from GNU Octave / Matlab.
 
-    Params:
-        - matrix : matrix
-        - shift : shift 
+    Args:
+        kernel (numpy.ndarray): matrix
+        shift (numpy.ndarray): shift
 
     Returns:
-        - Circulary shifted matrix
+        Circulary shifted matrix
     """
-    return numpy.roll(array, shift, [ i for i in range(0, array.ndim) ])
+    return numpy.roll(kernel, shift, [ i for i in range(0, kernel.ndim) ])
 
 
 def fourier_diagonalization(kernel: numpy.ndarray, shape_out: numpy.ndarray) -> numpy.ndarray:
-    """Diagonalize input in Fourier space
+    """Diagonalize kernel in Fourier space.
 
-    Params:
-        - kernel: filter/kernel for diagonalization
-        - shape_out: dimesion of output
+    Args:
+        kernel (numpy.ndarray): filter/kernel for diagonalization
+        shape_out (numpy.ndarray): dimesion of output
 
     Returns:
-        Diagonalisation in Fourier space (Complex Array) of kernel with dimension shape out
+        diagonalized kernel in Fourier space
     """
     
     # Post Zero Padding Kernel ie add zero to bottom and right of kernel
@@ -46,28 +45,58 @@ def fourier_diagonalization(kernel: numpy.ndarray, shape_out: numpy.ndarray) -> 
     return diagonalized
 
 
-def make_bccb(p: numpy.ndarray) -> numpy.ndarray :
-    
-    N, M = p.shape
-    
-    dim = numpy.prod(numpy.array(p.shape))
-    p_cpy = numpy.copy(p)
-    
-    p1 = numpy.reshape(p_cpy.T, newshape=dim)
-    P = numpy.zeros(shape=(dim, dim))
-    P[:, 0] = p1
+def make_bccb(kernel: numpy.ndarray) -> numpy.ndarray:
+    """Construct Block Circulant-Circulant Block (BCCB) matrix.
 
-    # print("First Boucle")
-    # print(P)
+    Args:
+        kernel (numpy.ndarray): a kernel 2D
+
+    Returns:
+        BCCB matrix for the kernel
+    """
+    N, M = kernel.shape
+    
+    dim = numpy.prod(numpy.array(kernel.shape))
+    kernel_cpy = numpy.copy(kernel)
+    
+    first_column = numpy.reshape(kernel_cpy.T, newshape=dim)
+    kernel_bccb = numpy.zeros(shape=(dim, dim))
+    kernel_bccb[:, 0] = first_column
+
     for j in range(1, M):
         for i in range(0, M*N, N):
-            P[i:i+N, j] = numpy.roll(P[i:i+N, j-1], 1)
-            # print(P)
+            kernel_bccb[i:i+N, j] = numpy.roll(kernel_bccb[i:i+N, j-1], 1)
 
-    # print("Second Boucle")
     for j in range(1, M):
-        P[:, N*j: N*j+N] = numpy.roll(P[:, N*(j-1): N*(j-1)+N], (N, 0), (0, 1))
-        # print(P)
+        kernel_bccb[:, N*j: N*j+N] = numpy.roll(
+            kernel_bccb[:, N*(j-1): N*(j-1)+N], (N, 0), (0, 1)
+        )
+   
+    return kernel_bccb
 
 
-    return P
+# def make_bccb(p: numpy.ndarray) -> numpy.ndarray :
+    
+#     N, M = p.shape
+    
+#     dim = numpy.prod(numpy.array(p.shape))
+#     p_cpy = numpy.copy(p)
+    
+#     p1 = numpy.reshape(p_cpy.T, newshape=dim)
+#     P = numpy.zeros(shape=(dim, dim))
+#     P[:, 0] = p1
+
+#     # print("First Boucle")
+#     # print(P)
+#     for j in range(1, M):
+#         for i in range(0, M*N, N):
+#             P[i:i+N, j] = numpy.roll(P[i:i+N, j-1], 1)
+#             # print(P)
+
+#     # print("Second Boucle")
+#     for j in range(1, M):
+#         P[:, N*j: N*j+N] = numpy.roll(P[:, N*(j-1): N*(j-1)+N], (N, 0), (0, 1))
+#         # print(P)
+
+
+#     return P

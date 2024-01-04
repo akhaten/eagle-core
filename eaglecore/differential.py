@@ -1,8 +1,20 @@
+
+
 import numpy
 
-
 def difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray:
+    """Compute directional gradient with circular boundary condition
+    
+    Args:
+        array (numpy.ndarray): element for derivation
+        axis (int): direction of gradient
 
+    Returns:
+        derivative of array
+        
+    Notes: 
+        - You can use the `dfc` alias
+    """
     prepend = numpy.expand_dims(
         array.take(indices=-1, axis=axis),
         axis=axis
@@ -19,21 +31,46 @@ def difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray
 
 
 def transposed_difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray:
+    """Compute transposed directional gradient with circular boundary condition
     
+    Args:
+        array (numpy.ndarray): element for derivation
+        axis (int): direction of gradient
+
+    Returns:
+        derivative of array
+        
+    Notes: 
+        - You can use the `tdfc` alias
+    """
     deriv = difference_finite_circular(numpy.flip(array, axis), axis)
     return numpy.flip(deriv, axis)
     
-dfc = difference_finite_circular
-tdfc = transposed_difference_finite_circular
     
-def laplacian2D(array: numpy.ndarray) -> numpy.ndarray:
-    
+"""
+"""
+def laplacian2D_difference_finite_circular(array: numpy.ndarray) -> numpy.ndarray:
+    """Get laplacian of array with exact definition 
+
+    Args:
+        array (numpy.ndarray): array for laplacian
+
+    Returns:
+        laplacian of array
+        
+    Notes: 
+        - You can use the `lap2Dc` alias
+    """
     d0 = difference_finite_circular(array, axis = 0)
     d1 = difference_finite_circular(array, axis = 1)
     dd0 = transposed_difference_finite_circular(d0, axis = 0)
     dd1 = transposed_difference_finite_circular(d1, axis = 1)
     
     return dd0 + dd1
+
+dfc = difference_finite_circular
+tdfc = transposed_difference_finite_circular
+lap2Dc = laplacian2D_difference_finite_circular
 
 # def dx(image: numpy.ndarray) -> numpy.ndarray:
 #     """ Derivation by column

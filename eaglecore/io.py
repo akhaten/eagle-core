@@ -3,39 +3,48 @@ import matplotlib.cm
 import numpy
 import pathlib
 
-def read(image_path: pathlib.Path) -> numpy.ndarray:
+def read(data_path: pathlib.Path) -> numpy.ndarray:
+    """Read data from path by function of file's extension
 
-    ext = image_path.suffix
+    Args:
+        data_path (pathlib.Path): path of data
+
+    Returns:
+        datas from file
+        
+    Supported extensions :
+        | Extension        | Description                          |
+        | ---------------- | ------------------------------------ |
+        | `.npy`           | ```numpy.load```                     |
+        | image extensions | ```matplotlib.pyplot.imread```       |
+        
+    TODO:
+        - add matlab extensions support ".mat"
+       
+    """
+
+    ext = data_path.suffix
     image: numpy.ndarray = None
 
     if ext == '.npy':
-        image = numpy.load(image_path)
+        image = numpy.load(data_path)
     else:
-        image = matplotlib.pyplot.imread(image_path)
+        image = matplotlib.pyplot.imread(data_path)
 
     return image
 
 def save(data: numpy.ndarray, data_path: pathlib.Path) -> None:
+    """Save data
+
+    Args:
+        data (numpy.ndarray): data
+        data_path (pathlib.Path): path of data
+    """
     
     ext = data_path.suffix
 
     if ext == '.npy':
         numpy.save(data_path, data)
     else:
-        matplotlib.pyplot.imsave(data_path, data, cmap='gray')
-
-
-# def plot_images(grid: numpy.ndarray, titles: numpy.ndarray, cmap: str) -> None:
-    
-#     m, n = grid.shape
-#     idx = 1
-#     for i in range(0, m):
-#         for j in range(0, n):
-#             title = titles[i, j]
-#             image = grid[i, j]
-#             if not (image is None):
-#                 matplotlib.pyplot.subplot(m, n, idx)
-#                 matplotlib.pyplot.title(title)
-#                 matplotlib.pyplot.imshow(image, cmap)
-#             idx += 1
+        matplotlib.pyplot.imsave(data_path, data)
 

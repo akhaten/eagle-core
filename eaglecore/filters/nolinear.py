@@ -6,18 +6,18 @@ import typing
 
 import eaglecore.filters.linear
 
+
 def bilateral(image: numpy.ndarray, sigma_spatial: float, sigma_color: float, size: int) -> numpy.ndarray:
+    """Apply Bilateral filter on image.
 
-    """ Bilateral filter
-        
-        Parameters:
-            - image: image
-            - sigma_d: sigma spatial
-            - sigma_r: sigma color
-            - size: size of window/neighbourhood
+    Args:
+        image (numpy.ndarray): image
+        sigma_spatial (float): sigma spatial
+        sigma_color (float): sigma color
+        size (int): size of window/neighbourhood
 
-        Returns:
-            - image filtered
+    Returns:
+        Filtered image
     """
 
     def weight(i: int, j: int, k: int, l: int) -> float:
@@ -46,7 +46,16 @@ def bilateral(image: numpy.ndarray, sigma_spatial: float, sigma_color: float, si
 
 
 def non_local_mean(image: numpy.ndarray, sigma: float, size: int) -> numpy.ndarray:
+    """Apply Non Local Mean (NLM) filter on image.
 
+    Args:
+        image (numpy.ndarray): an image
+        sigma (float): standard deviation
+        size (int): size of window/neighbourhood
+
+    Returns:
+        Filtered image
+    """
     def weight(i: int, j: int, k: int, l: int) -> float:
         expr: float = ((image[i, j]-image[k, l]) ** 2) / (2*(sigma**2))
         return numpy.exp(-expr)
@@ -71,26 +80,23 @@ def non_local_mean(image: numpy.ndarray, sigma: float, size: int) -> numpy.ndarr
     return image_d
 
 def anisotropic(image: numpy.ndarray, lamda: float, k: float, nb_iterations: int) -> numpy.ndarray:
+    """Apply Anisotropic filter on image.
 
-    # M1 = compute(us, n=20, k=30, lamb=0.1)
+    Args:
+        image (numpy.ndarray): an image
+        lamda (float): hyperparameters for gradient ~ ]0, 25]
+        k (float): hyperparameters for hot function ~ [0, 20]
+        nb_iterations (int): number of iterations ~ 20
 
-    # res = numpy.abs(scipy.signal.hilbert2(M1))
-    # figure = matplotlib.pyplot.figure(figsize=(50, 50), dpi=20)
-    # # matplotlib.pyplot.subplot(1, 2, 1)
-    # matplotlib.pyplot.imshow(numpy.log(res), cmap='gray', aspect='auto').
-
-    """
-        k  [0, 20]
-        lamb ]0, 25]
-        n ~ 20
+    Returns:
+        Filtered image
     """
 
     class Mask(enum.Enum):
         NORTH = list(eaglecore.filters.linear.north())
         SOUTH = list(eaglecore.filters.linear.south())
         WEST  = list(eaglecore.filters.linear.west())
-        EST   = list(eaglecore.filters.linear.est())
-
+        EST   = list(eaglecore.filters.linear.east())
 
     c = lambda u : numpy.exp(-(u/k)**2)
     image_n = numpy.copy(image)
@@ -123,6 +129,18 @@ def anisotropic(image: numpy.ndarray, lamda: float, k: float, nb_iterations: int
 #     return e3 * image_fft2
 
 def wiener(image: numpy.ndarray, kernel: numpy.ndarray, k: float, use_fft: typing.Optional[bool] = False) -> numpy.ndarray:
+    """Apply Wiener filter on image.
+
+    Args:
+        image (numpy.ndarray): an image
+        kernel (numpy.ndarray): a kernel
+        k (float): hyperparameter to avoid divide by zero
+        use_fft (typing.Optional[bool], optional): Apply numpy.fft.fftn
+            on image and kernel. Defaults to False.
+
+    Returns:
+        Filtered image
+    """
     
     img = numpy.copy(image)
     ker = numpy.copy(kernel)
@@ -136,6 +154,17 @@ def wiener(image: numpy.ndarray, kernel: numpy.ndarray, k: float, use_fft: typin
     return frac * img
 
 def inverse(image: numpy.ndarray, kernel: numpy.ndarray, use_fft: typing.Optional[bool] = False) -> numpy.ndarray:
+    """Apply Inverse filter on image.
+
+    Args:
+        image (numpy.ndarray): an image
+        kernel (numpy.ndarray): a kernel
+        use_fft (typing.Optional[bool], optional): Apply numpy.fft.fftn
+            on image and kernel. Defaults to False.
+
+    Returns:
+        Filtered image
+    """
     
     img = numpy.copy(image)
     ker = numpy.copy(kernel)
@@ -148,6 +177,18 @@ def inverse(image: numpy.ndarray, kernel: numpy.ndarray, use_fft: typing.Optiona
 
 
 def pseudo_inverse(image: numpy.ndarray, kernel: numpy.ndarray, threshold: float, use_fft: typing.Optional[bool] = False) -> numpy.ndarray:
+    """Apply Pseudo-Inverse filter on image.
+
+    Args:
+        image (numpy.ndarray): an image
+        kernel (numpy.ndarray): a kernel
+        threshold (float): threshold to avoid divivide by zero
+        use_fft (typing.Optional[bool], optional): Apply numpy.fft.fftn
+            on image and kernel. Defaults to False.
+
+    Returns:
+        Filtered image
+    """
     
     img = numpy.copy(image)
     ker = numpy.copy(kernel)

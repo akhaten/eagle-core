@@ -5,7 +5,35 @@ theme:
   name: "readthedocs"
 
 plugins:
+
   - mkdocstrings
+  - mermaid2:
+      version: 10.6.1
+
+  - mkdocs-jupyter
+  #     include: ["tests/*.ipynb"]
+
+markdown_extensions:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+  
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# extra_javascript:
+#   - javascripts/katex.js 
+#   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+#   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+# extra_css:
+#   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 nav:
   - Presentation: index.md
@@ -13,5 +41,20 @@ nav:
   - 'Eaglecore' :
     - 'Filters' :
       - 'Linear' : Eaglecore/Filters/Linear.md
+      - 'No linear' : Eaglecore/Filters/NoLinear.md
+    - 'Differential' : Eaglecore/Differential.md
+    - 'Signal' :
+      - 'Measure' : Eaglecore/Signal/Measure.md
+      - 'Processing' : Eaglecore/Signal/Processing.md
+    - 'IO (Input/Output)' : Eaglecore/Io.md
+    - 'Metrics' : Eaglecore/Metrics.md
+    - 'Noise' : Eaglecore/Noise.md
+    - 'Point Spread Functions (PSF)' : Eaglecore/Psf.md
+    - 'Thresholding' : Eaglecore/Thresholding.md
+    - 'Types' : Eaglecore/Types.md
+    - 'Utils' : Eaglecore/Utils.md
+
+  # - 'Notebooks' :
+  #   - 'Notebook page' : "Notebooks/differential.ipynb"
 
   # - reference.md

@@ -2,71 +2,78 @@ import numpy
 import numpy.linalg
 
 
-# def hard(signal: numpy.ndarray, epsilon: float) -> numpy.ndarray:
-#     expr = numpy.abs(signal)-epsilon
-#     return numpy.sign(signal) * numpy.where(0 < expr, expr, 0)
+def soft(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
+    """Compute soft-thresolding.
 
+    Args:
+        x (numpy.ndarray): a data
+        threshold (float): threshold
 
-def soft(signal: numpy.ndarray, epsilon: float) -> numpy.ndarray:
-    """sign(x) * max(|x| - epsilon, 0)
+    Returns:
+        thresholded data
     """
-    expr = numpy.abs(signal) - epsilon
-    return numpy.sign(signal) * numpy.where(0 < expr, expr, 0)
+    # sign(x) * max(|x| - threshold, 0)
+    expr = numpy.abs(x) - threshold
+    return numpy.sign(x) * numpy.where(0 < expr, expr, 0)
 
-def multidimensional_soft(d: numpy.ndarray, epsilon: float):
-    """ Thresholding soft for multidimensional array
-    Use generalization of sign function
+
+def multidimensional_soft(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
+    """Compute generalization of soft-thresholding  for 
+        multidimensional array by using generalization of sign function.
+
+    Args:
+        x (numpy.ndarray): a data
+        threshold (float): threshold
+
+    Returns:
+        thresholded data
+    """
     
-    Params:
-        - d : multidimensional array
-        - epsilon : threshold
-
-    Return:
-        Array thresholded with dimesion equal to d
-    """
-    s = numpy.sqrt(numpy.sum(d**2, axis=0))
-    ss = numpy.where(s > epsilon, (s-epsilon)/s, 0)
-    output = numpy.array([ss*d[i] for i in range(0, d.shape[0])])
+    s = numpy.sqrt(numpy.sum(x**2, axis=0))
+    ss = numpy.where(s > threshold, (s-threshold)/s, 0)
+    output = numpy.array([ss*x[i] for i in range(0, x.shape[0])])
+    
     return output
 
 
-def singular_value(signal: numpy.ndarray, epsilon: float) -> numpy.ndarray:
-    """ SVT : Singular Value Thresholding
+def singular_value(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
+    """Compute singular value thresholding (SVT).
 
-    Params:
-        - d : multidimensional array
-        - epsilon : threshold
+    Args:
+        x (numpy.ndarray): a data
+        threshold (float): threshold
 
-    Return:
-        Array thresholded with dimesion equal to d
+    Returns:
+        thresholded data
     """
+    
     # Decomposition
-    u, s, vh = numpy.linalg.svd(signal)
+    u, s, vh = numpy.linalg.svd(x)
     # Thresholding
     singular_value_max = numpy.max(s)
-    s[s < epsilon*singular_value_max] = 0.
+    s[s < threshold*singular_value_max] = 0.
     # Reconstruction
     res = numpy.dot(u * s, vh)
     return res
 
 
-def singular_value_soft(signal: numpy.ndarray, epsilon: float) -> numpy.ndarray:
-    """ SVT : Singular Value Soft Thresholding
-    Apply soft threshoding on singular values of signal
+def singular_value_soft(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
+    """Compute singular value soft thresholding.
 
-    Params:
-        - d : multidimensional array
-        - epsilon : threshold
+    Args:
+        x (numpy.ndarray): a data
+        threshold (float): threshold
 
-    Return:
-        Array thresholded with dimesion equal to d
+    Returns:
+        thresholded data
     """
+   
     # Decomposition
-    u, s, vh = numpy.linalg.svd(signal)
+    u, s, vh = numpy.linalg.svd(x)
     # Thresholding with 
     # singular_value_max = numpy.max(s)
     s_diag = numpy.diag(s)
-    s_diag = soft(s_diag, epsilon)
+    s_diag = soft(s_diag, threshold)
     s = numpy.diag(s_diag)
     # Reconstruction
     res = numpy.dot(u * s, vh)
