@@ -5,6 +5,7 @@ let pkgs = import <nixpkgs> { inherit system; };
 
 in pkgs.python310Packages.buildPythonPackage {
 	name = "eaglecore";
+	version = "0.1";
 	src = ./.;
 	propagatedBuildInputs = with pkgs; [
 		python310

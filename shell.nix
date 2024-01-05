@@ -39,12 +39,7 @@ pkgs.mkShell {
         # python310Packages.mkdocs-exclude
         # python310Packages.mkdocs-simple-hooks
         # python310Packages.mkdocs-macros
-        # python310Packages.mkdocs-drawio-exporter
-        
-
-   
-
-        
+        # python310Packages.mkdocs-drawio-exporter        
 
     ];
 
