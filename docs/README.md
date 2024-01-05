@@ -1,5 +1,8 @@
 # Welcome to eagle-core
 
+Note that README.md file is in /docs
+
+
 ## Presentation
 
 eagle-core is a python package for signal processing.
