@@ -2,13 +2,25 @@ site_name: eaglecore
 
 theme:
   name : "material"
-  # name: "readthedocs"
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 plugins:
 
   - mkdocstrings
   - mermaid2:
       version: 10.6.1
+      arguments:
+          theme: |
+            ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
+      
 
   - mkdocs-jupyter
   #     include: ["tests/*.ipynb"]
@@ -20,6 +32,12 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - tables
+  # - pymdownx.superfences:
+  #     # make exceptions to highlighting of code:
+  #     custom_fences:
+  #       - name: mermaid
+  #         class: mermaid
+  #         format: !!python/name:mermaid2.fence_mermaid
   
 
 
@@ -27,6 +45,9 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # - extra/refresh_on_toggle_dark_light.js
+  - javascripts/mermaid-refresh-theme.js
+
 
 # extra_javascript:
 #   - javascripts/katex.js 

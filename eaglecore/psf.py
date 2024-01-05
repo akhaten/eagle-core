@@ -6,7 +6,7 @@ def gaussian1d(
     sigma: float, 
     x: typing.Union[float, numpy.ndarray]
 ) -> typing.Union[float, numpy.ndarray]:
-    """Point Spread Function (PSF) of gaussian 1D
+    """Point Spread Function (PSF) of gaussian 1D.
 
     Args:
         mu (float): mean
@@ -24,7 +24,7 @@ def gaussian2d(
     mu_0: float, sigma_0: float, x_0: typing.Union[float, numpy.ndarray],
     mu_1: float, sigma_1: float, x_1: typing.Union[float, numpy.ndarray]
 ) -> typing.Union[float, numpy.ndarray]:
-    """Point Spread Function (PSF) of gaussian 2D
+    """Point Spread Function (PSF) of gaussian 2D.
 
     Args:
         mu_0 (float): mean of first axe

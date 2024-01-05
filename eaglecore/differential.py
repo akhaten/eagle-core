@@ -3,7 +3,7 @@
 import numpy
 
 def difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray:
-    """Compute directional gradient with circular boundary condition
+    """Compute directional gradient with circular boundary condition.
     
     Args:
         array (numpy.ndarray): element for derivation
@@ -31,7 +31,7 @@ def difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray
 
 
 def transposed_difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray:
-    """Compute transposed directional gradient with circular boundary condition
+    """Compute transposed directional gradient with circular boundary condition.
     
     Args:
         array (numpy.ndarray): element for derivation
@@ -50,7 +50,7 @@ def transposed_difference_finite_circular(array: numpy.ndarray, axis: int) -> nu
 """
 """
 def laplacian2D_difference_finite_circular(array: numpy.ndarray) -> numpy.ndarray:
-    """Get laplacian of array with exact definition 
+    """Get laplacian of array with exact definition.
 
     Args:
         array (numpy.ndarray): array for laplacian

@@ -1,7 +1,6 @@
 # Description
 Linear filters are filters that can used in dicrete convolution
-See :
-    - [scipy.signal.convolve2d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html)
+like [scipy.signal.convolve2d](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html)
 
 
 ---

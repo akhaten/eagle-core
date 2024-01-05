@@ -2,7 +2,7 @@ import numpy
 import typing
 
 def mean_absolute_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> float:
-    """Compute mean absolute error (MAE)
+    """Compute mean absolute error (MAE).
 
     Args:
         signal_1 (numpy.ndarray): a signal
@@ -24,7 +24,7 @@ def mean_absolute_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> flo
     return res
 
 def mean_squared_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> float:
-    """Compute mean squared error (MSE)
+    """Compute mean squared error (MSE).
 
     Args:
         signal_1 (numpy.ndarray): a signal
@@ -53,7 +53,7 @@ def peak_signal_to_noise_ratio(
     signal_2: numpy.ndarray, 
     intensity_max: typing.Optional[float] = 255
 ) -> float:
-    """Peak Signal to Noise Ratio (PSNR)
+    """Peak Signal to Noise Ratio (PSNR).
     
     Args:
         signal_1 (numpy.ndarray): a signal

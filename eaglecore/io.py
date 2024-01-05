@@ -4,7 +4,7 @@ import numpy
 import pathlib
 
 def read(data_path: pathlib.Path) -> numpy.ndarray:
-    """Read data from path by function of file's extension
+    """Read data from path by function of file's extension.
 
     Args:
         data_path (pathlib.Path): path of data
@@ -34,7 +34,7 @@ def read(data_path: pathlib.Path) -> numpy.ndarray:
     return image
 
 def save(data: numpy.ndarray, data_path: pathlib.Path) -> None:
-    """Save data
+    """Save data.
 
     Args:
         data (numpy.ndarray): data

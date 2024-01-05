@@ -12,7 +12,7 @@ def get_awgn(
     snr: typing.Union[eaglecore.types.snr, eaglecore.types.snr_db],
     noise_shape: typing.Union[numpy.ndarray, tuple]
 ) -> tuple[float, numpy.ndarray]:
-    """Get Additive White Gaussian Noise
+    """Get additive white gaussian noise (AWGN).
 
     Args:
         signal_power (float): power of signal
@@ -43,7 +43,7 @@ def additive_white_gaussian_noise(
     signal: numpy.ndarray, 
     snr: typing.Union[eaglecore.types.snr, eaglecore.types.snr_db]
 ) -> numpy.ndarray:
-    """Additive White Gaussian Noise (AWGN)
+    """Add additive white gaussian noise (AWGN).
 
     Args:
         signal (numpy.ndarray): a signal
