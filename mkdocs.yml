@@ -1,8 +1,8 @@
 site_name: eaglecore
 
 theme:
-  # name : "material"
-  name: "readthedocs"
+  name : "material"
+  # name: "readthedocs"
 
 plugins:
 
@@ -16,6 +16,7 @@ plugins:
 markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  # - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
   - tables
@@ -38,7 +39,7 @@ extra_javascript:
 nav:
   - Presentation: index.md
 
-  - 'Eaglecore' :
+  - 'Eaglecore package' :
     - 'Filters' :
       - 'Linear' : Eaglecore/Filters/Linear.md
       - 'No linear' : Eaglecore/Filters/NoLinear.md
