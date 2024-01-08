@@ -49,7 +49,7 @@ with nix.
 
 By title of example, in your own `shell.nix` file, you can do :
 ```nix
-{ pkgs ? import <nixpkgs> {}, ... }:
+{ pkgs ? import <nixpkgs> {}, lib, ... }:
 
 let 
 

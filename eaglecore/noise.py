@@ -66,15 +66,15 @@ def additive_white_gaussian_noise(
     """
 
     # signal_noised = numpy.array(signal, numpy.double)
-    signal_double = signal.astype(numpy.double)
-
+    # signal_double = signal.astype(numpy.double)
+    signal_double = signal
     signal_power = eaglecore.signal.measure.power(signal_double)
     
     _, noise = get_awgn(
         signal_power = signal_power,
         snr = snr,
         noise_shape = signal_double.shape,
-        real_noise = True
+        real_noise = (signal.dtype != numpy.complex_)
     )
     
     noised_signal = signal_double + noise

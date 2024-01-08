@@ -77,8 +77,11 @@ nav:
     - 'Utils' : Eaglecore/Utils.md
 
   - 'Notebooks' :
-  #   - 'Notebook page' : "Notebooks/differential.ipynb"
-      - 'Signal' :
-          - 'Measure' : Notebooks/Signal/measure.ipynb
+    - 'Differential' : Notebooks/differential.ipynb
+    - 'Noise' : Notebooks/noise.ipynb
+    - 'Signal' :
+      - 'Measure' : Notebooks/Signal/measure.ipynb
+    - 'Thresholding' : Notebooks/thresholding.ipynb
+    - 'Types' : Notebooks/types.ipynb
 
   # - reference.md
