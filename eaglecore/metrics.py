@@ -14,14 +14,9 @@ def mean_absolute_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> flo
     Notes:
         - You can use `mae` alias    
     """
-    n = signal_1.shape[0] * signal_1.shape[1]
-    # | signal_1[i] - signal_2[i] |
-    tmp = numpy.abs(signal_1 - signal_2)
-    # sum | signal_1[i] - signal_2[i] |
-    res = numpy.sum(tmp)
-    # (1/n) sum | signal_1[i] - signal_2[i] |
-    res /= n
-    return res
+    error = signal_1 - signal_2
+    absolute_error = numpy.abs(error)
+    return numpy.mean(absolute_error)
 
 def mean_squared_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> float:
     """Compute mean squared error (MSE).
@@ -36,17 +31,9 @@ def mean_squared_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> floa
     Notes:
         - You can use `mse` alias    
     """
-    
-    n = signal_1.shape[0] * signal_1.shape[1]
-    # signal_1[i] - signal_2[i]
-    tmp = (signal_1 - signal_2) ** 2
-    # (signal_1[i] - signal_2[i])^2
-    # tmp **= 2
-    # sum ( (signal_1[i] - signal_2[i])^2 )
-    res = numpy.sum(tmp)
-    # (1/n) sum ( (signal_1[i] - signal_2[i])^2 )
-    res /= n
-    return res
+    error = signal_1 - signal_2
+    squared_error = error ** 2
+    return numpy.mean(squared_error)
 
 def peak_signal_to_noise_ratio(
     signal_1: numpy.ndarray, 
