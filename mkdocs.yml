@@ -1,4 +1,4 @@
-site_name: eaglecore
+site_name: eagle-core
 
 theme:
   name : "material"
@@ -60,7 +60,7 @@ extra_javascript:
 nav:
   - Presentation: README.md
 
-  - 'Eaglecore package' :
+  - 'Package' :
     - 'Filters' :
       - 'Linear' : Eaglecore/Filters/Linear.md
       - 'No linear' : Eaglecore/Filters/NoLinear.md
@@ -76,7 +76,9 @@ nav:
     - 'Types' : Eaglecore/Types.md
     - 'Utils' : Eaglecore/Utils.md
 
-  # - 'Notebooks' :
+  - 'Notebooks' :
   #   - 'Notebook page' : "Notebooks/differential.ipynb"
+      - 'Signal' :
+          - 'Measure' : Notebooks/Signal/measure.ipynb
 
   # - reference.md

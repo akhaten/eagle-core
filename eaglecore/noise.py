@@ -7,10 +7,12 @@ import eaglecore.signal.measure
 import eaglecore.types
 import eaglecore.signal.processing
 
+
 def get_awgn(
     signal_power: float, 
     snr: typing.Union[eaglecore.types.snr, eaglecore.types.snr_db],
-    noise_shape: typing.Union[numpy.ndarray, tuple]
+    noise_shape: typing.Union[numpy.ndarray, tuple],
+    real_noise: bool = False
 ) -> tuple[float, numpy.ndarray]:
     """Get additive white gaussian noise (AWGN).
 
@@ -34,7 +36,13 @@ def get_awgn(
         raise TypeError('snr must be (eaglecore.types.snr) or (eaglecore.types.snr_db)')
 
     sigma, mu = numpy.sqrt(noise_power), 0.0
-    noise = numpy.random.normal(loc=mu, scale=sigma, size=noise_shape)
+    
+    if real_noise :
+        noise = numpy.random.normal(loc=mu, scale=sigma, size=noise_shape)
+    else:
+        real_part = numpy.random.normal(loc=mu, scale=sigma/2, size=noise_shape)
+        imag_part = numpy.random.normal(loc=mu, scale=sigma/2, size=noise_shape)
+        noise = real_part + 1j * imag_part
     
     return noise_power, noise
 
@@ -65,7 +73,8 @@ def additive_white_gaussian_noise(
     _, noise = get_awgn(
         signal_power = signal_power,
         snr = snr,
-        noise_shape = signal_double.shape
+        noise_shape = signal_double.shape,
+        real_noise = True
     )
     
     noised_signal = signal_double + noise

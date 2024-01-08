@@ -75,7 +75,7 @@ in pkgs.mkShell {
 
 ```sh
 python3 -m venv venv
-souce ./venv/bin/activate # To disable virtual environment => deactivate
+souce ./venv/bin/activate # To disable virtual environment => ./deactivate
 pip3 install git+https://www.github.com/akhaten/eagle-core.git
 ```
 
