@@ -11,6 +11,8 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
+  features:
+    - content.tabs.link
 
 plugins:
 
@@ -28,16 +30,21 @@ plugins:
 markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  # - pymdownx.superfences
   # - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
   - tables
-  # - pymdownx.superfences:
-  #     # make exceptions to highlighting of code:
-  #     custom_fences:
-  #       - name: mermaid
-  #         class: mermaid
-  #         format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
   
 
 
@@ -78,7 +85,9 @@ nav:
 
   - 'Notebooks' :
     - 'Differential' : Notebooks/differential.ipynb
+    - 'Gradient Noise' : Notebooks/gradient_noise.ipynb
     - 'Noise' : Notebooks/noise.ipynb
+    - 'Point Spread Functions (PSF)' : Notebooks/psf.ipynb 
     - 'Signal' :
       - 'Measure' : Notebooks/Signal/measure.ipynb
     - 'Thresholding' : Notebooks/thresholding.ipynb

@@ -29,7 +29,7 @@ class snr(float):
         return '{} [linear]'.format(super().__str__())
     
     def to_dB(self) -> 'snr_db':
-        """Convert to SNR in linear.
+        """Convert to SNR in dB.
 
         Returns:
             SNR in dB

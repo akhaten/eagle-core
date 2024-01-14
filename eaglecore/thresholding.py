@@ -51,7 +51,7 @@ def singular_value(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
     u, s, vh = numpy.linalg.svd(x)
     # Thresholding
     singular_value_max = numpy.max(s)
-    s[s < threshold*singular_value_max] = 0.
+    s[s < threshold*singular_value_max] = 0.0
     # Reconstruction
     res = numpy.dot(u * s, vh)
     return res
@@ -59,7 +59,7 @@ def singular_value(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
 
 def singular_value_soft(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
     """Compute singular value soft thresholding.
-
+    
     Args:
         x (numpy.ndarray): a data
         threshold (float): threshold

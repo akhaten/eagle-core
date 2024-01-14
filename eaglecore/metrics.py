@@ -10,9 +10,6 @@ def mean_absolute_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> flo
 
     Returns:
         mean absolute error
-        
-    Notes:
-        - You can use `mae` alias    
     """
     error = signal_1 - signal_2
     absolute_error = numpy.abs(error)
@@ -26,10 +23,7 @@ def mean_squared_error(signal_1: numpy.ndarray, signal_2: numpy.ndarray) -> floa
         signal_2 (numpy.ndarray): an other signal
 
     Returns:
-        mean squared error
-        
-    Notes:
-        - You can use `mse` alias    
+        mean squared error  
     """
     error = signal_1 - signal_2
     squared_error = error ** 2
@@ -47,12 +41,8 @@ def peak_signal_to_noise_ratio(
         signal_2 (numpy.ndarray): an other signal
 
     Returns:
-        peak signal to noise ratio
-        
-    Notes:
-        - You can use `psnr` alias    
+        peak signal to noise ratio 
     """
-
     # intensity_max = numpy.max(signal_1)
     mse = mean_squared_error(signal_1, signal_2)
     return 10 * numpy.log10( (intensity_max**2) / mse )

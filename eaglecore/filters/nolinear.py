@@ -9,6 +9,14 @@ import eaglecore.filters.linear
 
 def bilateral(image: numpy.ndarray, sigma_spatial: float, sigma_color: float, size: int) -> numpy.ndarray:
     """Apply Bilateral filter on image.
+    
+    Let $I$ the image and $I_D$ the filtered image:
+    
+    \\begin{align}
+    w(i, j, k, l) &= e^{-\\frac{(i-k)^2+(j-l)^2}{2\sigma_{spatial}^2} 
+    - \\frac{\\lVert I(i,j)-I(k,l) \\rVert^{2}_{2}}{2\sigma_{color}^{2}}} \\\\
+    I_{D}(i,j) &= \\frac{\\sum_{k,l} I(k,l) w(i,j,k,l)}{\\sum_{k,l} w(i,j,k,l)}
+    \\end{align}
 
     Args:
         image (numpy.ndarray): image

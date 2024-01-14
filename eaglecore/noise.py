@@ -59,10 +59,6 @@ def additive_white_gaussian_noise(
 
     Returns:
         Noised signal
-        
-    Notes:
-        - You can use `awgn` alias
-        - You could need to normalize your noised image
     """
 
     # signal_noised = numpy.array(signal, numpy.double)

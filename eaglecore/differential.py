@@ -1,6 +1,5 @@
-
-
 import numpy
+
 
 def difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray:
     """Compute directional gradient with circular boundary condition.
@@ -11,9 +10,6 @@ def difference_finite_circular(array: numpy.ndarray, axis: int) -> numpy.ndarray
 
     Returns:
         derivative of array
-        
-    Notes: 
-        - You can use the `dfc` alias
     """
     prepend = numpy.expand_dims(
         array.take(indices=-1, axis=axis),
@@ -39,16 +35,11 @@ def transposed_difference_finite_circular(array: numpy.ndarray, axis: int) -> nu
 
     Returns:
         derivative of array
-        
-    Notes: 
-        - You can use the `tdfc` alias
     """
     deriv = difference_finite_circular(numpy.flip(array, axis), axis)
     return numpy.flip(deriv, axis)
     
-    
-"""
-"""
+
 def laplacian2D_difference_finite_circular(array: numpy.ndarray) -> numpy.ndarray:
     """Get laplacian of array with exact definition.
 
@@ -57,9 +48,6 @@ def laplacian2D_difference_finite_circular(array: numpy.ndarray) -> numpy.ndarra
 
     Returns:
         laplacian of array
-        
-    Notes: 
-        - You can use the `lap2Dc` alias
     """
     d0 = difference_finite_circular(array, axis = 0)
     d1 = difference_finite_circular(array, axis = 1)

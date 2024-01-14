@@ -14,4 +14,8 @@
         show_source: true
         show_root_heading: true
 
+??? tip
+    - You can use `awgn` alias.
+    - You could need to normalize your noised signal.
+
 ---

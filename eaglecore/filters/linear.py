@@ -121,7 +121,7 @@ def mean_filter(size: typing.Union[numpy.ndarray, tuple]) -> numpy.ndarray:
     Returns:
         Mean filter
     """
-    filter = numpy.ones(size=size)
+    filter = numpy.ones(shape=size)
     filter /= numpy.prod(numpy.array(size))
     return filter
 

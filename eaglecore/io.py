@@ -11,16 +11,6 @@ def read(data_path: pathlib.Path) -> numpy.ndarray:
 
     Returns:
         datas from file
-        
-    Supported extensions :
-        | Extension        | Description                          |
-        | ---------------- | ------------------------------------ |
-        | `.npy`           | ```numpy.load```                     |
-        | image extensions | ```matplotlib.pyplot.imread```       |
-        
-    TODO:
-        - add matlab extensions support ".mat"
-       
     """
 
     ext = data_path.suffix
