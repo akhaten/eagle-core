@@ -431,7 +431,7 @@
 <td>
 <code>numpy.<span title="numpy.ndarray">ndarray</span></code>
 </td>
-<td><p>dimesion of output</p></td>
+<td><p>shape of output</p></td>
 <td>
 <em>required</em>
 </td>
@@ -489,7 +489,7 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        kernel (numpy.ndarray): filter/kernel for diagonalization</span>
-<span class="sd">        shape_out (numpy.ndarray): dimesion of output</span>
+<span class="sd">        shape_out (numpy.ndarray): shape of output</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        diagonalized kernel in Fourier space</span>
@@ -640,7 +640,6 @@
 <summary>Understand the construction of BCCB matrix</summary>
 <details class="note">
 <summary>Step 1 : Build circshifted kernel</summary>
-<p>We identify the center of matrix then we place like first element of matrix.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Render</label><label for="__tabbed_1_2">Latex</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -687,7 +686,6 @@ h<span class="nb">_{</span>0, 1<span class="nb">}</span> <span class="nb">&amp;<
 </details>
 <details class="note">
 <summary>Step 2 : Build first column of BCCB matrix</summary>
-<p>For build first column of <span class="arithmatex">\(H_{BCCB}\)</span>, we stack each columns of circshifted kernel in vector.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Render</label><label for="__tabbed_2_2">Latex</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -744,7 +742,6 @@ h<span class="nb">_{</span>2, 0<span class="nb">}</span> <span class="k">\\</spa
 </details>
 <details class="note">
 <summary>Step 3 : Build first column-block of BCCB matrix</summary>
-<p>For build first column of <span class="arithmatex">\(H_{BCCB}\)</span>, we stack each columns of circshifted kernel in vector.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Render</label><label for="__tabbed_3_2">Latex</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -839,7 +836,6 @@ h<span class="nb">_{</span>2, 0<span class="nb">}</span> <span class="nb">&amp;<
 </details>
 <details class="note">
 <summary>Step 4 : Build others columns-blocks of BCCB matrix</summary>
-<p>For build first column of <span class="arithmatex">\(H_{BCCB}\)</span>, we stack each columns of circshifted kernel in vector.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Render</label><label for="__tabbed_4_2">Latex</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
