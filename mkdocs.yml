@@ -85,7 +85,7 @@ nav:
 
   - 'Notebooks' :
     - 'Differential' : Notebooks/differential.ipynb
-    - 'Gradient Noise' : Notebooks/gradient_noise.ipynb
+    # - 'Gradient Noise' : Notebooks/gradient_noise.ipynb
     - 'Noise' : Notebooks/noise.ipynb
     - 'Point Spread Functions (PSF)' : Notebooks/psf.ipynb 
     - 'Signal' :
