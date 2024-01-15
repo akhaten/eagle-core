@@ -9,6 +9,7 @@ Note that README.md file is in /docs folder
 ## Presentation
 
 eagle-core is a python package for signal processing.
+Documentation is available [here](https://akhaten.github.io/eagle-core/).
 
 ---
 
@@ -34,8 +35,25 @@ flowchart TD
     Signal --> Measure[measure]
     Signal --> Processing[processing]
 
+    click EagleCore "https://akhaten.github.io/eagle-core/Eaglecore/" _blank
+
+    click Linear "https://akhaten.github.io/eagle-core/Eaglecore/Filters/Linear" _blank
+    click NoLinear "https://akhaten.github.io/eagle-core/Eaglecore/Filters/NoLinear" _blank
+    
+    click Measure "https://akhaten.github.io/eagle-core/Eaglecore/Signal/Measure" _blank
+    click Processing "https://akhaten.github.io/eagle-core/Eaglecore/Signal/Processing" _blank
+
+    click Differential "https://akhaten.github.io/eagle-core/Eaglecore/Differential/" _blank
+    click IO "https://akhaten.github.io/eagle-core/Eaglecore/IO/" _blank
+    click Metrics "https://akhaten.github.io/eagle-core/Eaglecore/Metrics/" _blank
+    click Noise "https://akhaten.github.io/eagle-core/Eaglecore/Noise/" _blank
+    click PSF "https://akhaten.github.io/eagle-core/Eaglecore/PSF/" _blank
+    click Thresholding "https://akhaten.github.io/eagle-core/Eaglecore/Thresholding/" _blank
+    click Types "https://akhaten.github.io/eagle-core/Eaglecore/Types/" _blank
+    click Utils "https://akhaten.github.io/eagle-core/Eaglecore/Utils/" _blank
+
 ```
-<!-- click Differential "http://127.0.0.1:8000/Eaglecore/Differential/" _blank -->
+
 
 ---
 
