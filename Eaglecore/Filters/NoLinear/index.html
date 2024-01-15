@@ -1,0 +1,1234 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../Linear/" rel="prev"/>
+<link href="../../Differential/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
+<title>No linear - eagle-core</title>
+<link href="../../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#description">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="eagle-core" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="eagle-core">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            eagle-core
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              No linear
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="eagle-core" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="eagle-core">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    eagle-core
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Presentation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Package
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Package
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Filters
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          Filters
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Linear/">
+        Linear
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          No linear
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        No linear
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.bilateral">
+    bilateral()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.non_local_mean">
+    non_local_mean()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.anisotropic">
+    anisotropic()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.wiener">
+    wiener()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.inverse">
+    inverse()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.pseudo_inverse">
+    pseudo_inverse()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Differential/">
+        Differential
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Signal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Signal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Signal/Measure/">
+        Measure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Signal/Processing/">
+        Processing
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Io/">
+        IO (Input/Output)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Metrics/">
+        Metrics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Noise/">
+        Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Psf/">
+        Point Spread Functions (PSF)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Thresholding/">
+        Thresholding
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Types/">
+        Types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Utils/">
+        Utils
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/differential/">
+        Differential
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/gradient_noise/">
+        Gradient Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/noise/">
+        Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/psf/">
+        Point Spread Functions (PSF)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Signal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Signal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/Signal/measure/">
+        Measure
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/thresholding/">
+        Thresholding
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/types/">
+        Types
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.bilateral">
+    bilateral()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.non_local_mean">
+    non_local_mean()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.anisotropic">
+    anisotropic()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.wiener">
+    wiener()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.inverse">
+    inverse()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.nolinear.pseudo_inverse">
+    pseudo_inverse()
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="description">Description</h1>
+<p>No linear filters are filters that can't used in dicrete convolution.</p>
+<hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.nolinear.bilateral">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">nolinear</span><span class="o">.</span><span class="n">bilateral</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma_spatial</span><span class="p">,</span> <span class="n">sigma_color</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Apply Bilateral filter on image.</p>
+<p>Let <span class="arithmatex">\(I\)</span> the image and <span class="arithmatex">\(I_D\)</span> the filtered image:</p>
+<div class="arithmatex">\[\begin{align}
+w(i, j, k, l) &amp;= e^{-\frac{(i-k)^2+(j-l)^2}{2\sigma_{spatial}^2} 
+- \frac{\lVert I(i,j)-I(k,l) \rVert^{2}_{2}}{2\sigma_{color}^{2}}} \\
+I_{D}(i,j) &amp;= \frac{\sum_{k,l} I(k,l) w(i,j,k,l)}{\sum_{k,l} w(i,j,k,l)}
+\end{align}\]</div>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>image</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>sigma_spatial</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>sigma spatial</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>sigma_color</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>sigma color</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>
+<code>int</code>
+</td>
+<td><p>size of window/neighbourhood</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Filtered image</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/nolinear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bilateral</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sigma_spatial</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sigma_color</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Apply Bilateral filter on image.</span>
+
+<span class="sd">    Let $I$ the image and $I_D$ the filtered image:</span>
+
+<span class="sd">    \\begin{align}</span>
+<span class="sd">    w(i, j, k, l) &amp;= e^{-\\frac{(i-k)^2+(j-l)^2}{2\sigma_{spatial}^2} </span>
+<span class="sd">    - \\frac{\\lVert I(i,j)-I(k,l) \\rVert^{2}_{2}}{2\sigma_{color}^{2}}} \\\\</span>
+<span class="sd">    I_{D}(i,j) &amp;= \\frac{\\sum_{k,l} I(k,l) w(i,j,k,l)}{\\sum_{k,l} w(i,j,k,l)}</span>
+<span class="sd">    \\end{align}</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (numpy.ndarray): image</span>
+<span class="sd">        sigma_spatial (float): sigma spatial</span>
+<span class="sd">        sigma_color (float): sigma color</span>
+<span class="sd">        size (int): size of window/neighbourhood</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Filtered image</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">expr1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">l</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">sigma_spatial</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+        <span class="n">expr2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">image</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">sigma_color</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">expr1</span><span class="o">-</span><span class="n">expr2</span><span class="p">)</span>
+
+    <span class="n">nb_rows</span><span class="p">,</span> <span class="n">nb_cols</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">half_size</span> <span class="o">=</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="n">image_d</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">half_size</span><span class="p">,</span> <span class="n">nb_rows</span><span class="o">-</span><span class="n">half_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">half_size</span><span class="p">,</span> <span class="n">nb_cols</span><span class="o">-</span><span class="n">half_size</span><span class="p">):</span>
+            <span class="n">sum_iw</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">sum_w</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">half_size</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">half_size</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">half_size</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="n">half_size</span><span class="p">):</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">weight</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+                    <span class="n">sum_iw</span> <span class="o">+=</span> <span class="n">image</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">w</span>
+                    <span class="n">sum_w</span> <span class="o">+=</span> <span class="n">w</span>
+
+            <span class="n">image_d</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum_iw</span> <span class="o">/</span> <span class="n">sum_w</span>
+
+    <span class="k">return</span> <span class="n">image_d</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.nolinear.non_local_mean">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">nolinear</span><span class="o">.</span><span class="n">non_local_mean</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Apply Non Local Mean (NLM) filter on image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>an image</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>sigma</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>standard deviation</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>
+<code>int</code>
+</td>
+<td><p>size of window/neighbourhood</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Filtered image</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/nolinear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">non_local_mean</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Apply Non Local Mean (NLM) filter on image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (numpy.ndarray): an image</span>
+<span class="sd">        sigma (float): standard deviation</span>
+<span class="sd">        size (int): size of window/neighbourhood</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Filtered image</span>
+<span class="sd">    """</span>
+    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">expr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="p">((</span><span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">image</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">expr</span><span class="p">)</span>
+
+    <span class="n">nb_rows</span><span class="p">,</span> <span class="n">nb_cols</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">half_size</span> <span class="o">=</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="n">image_d</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">half_size</span><span class="p">,</span> <span class="n">nb_rows</span><span class="o">-</span><span class="n">half_size</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">half_size</span><span class="p">,</span> <span class="n">nb_cols</span><span class="o">-</span><span class="n">half_size</span><span class="p">):</span>
+            <span class="n">sum_iw</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">sum_w</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">half_size</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">half_size</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">half_size</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="n">half_size</span><span class="p">):</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">weight</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+                    <span class="n">sum_iw</span> <span class="o">+=</span> <span class="n">image</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="o">*</span> <span class="n">w</span>
+                    <span class="n">sum_w</span> <span class="o">+=</span> <span class="n">w</span>
+
+            <span class="n">image_d</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum_iw</span> <span class="o">/</span> <span class="n">sum_w</span>
+
+    <span class="k">return</span> <span class="n">image_d</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.nolinear.anisotropic">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">nolinear</span><span class="o">.</span><span class="n">anisotropic</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">lamda</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">nb_iterations</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Apply Anisotropic filter on image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>an image</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>lamda</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>hyperparameters for gradient ~ ]0, 25]</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>hyperparameters for hot function ~ [0, 20]</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>nb_iterations</code></td>
+<td>
+<code>int</code>
+</td>
+<td><p>number of iterations ~ 20</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Filtered image</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/nolinear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">anisotropic</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">lamda</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">nb_iterations</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Apply Anisotropic filter on image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (numpy.ndarray): an image</span>
+<span class="sd">        lamda (float): hyperparameters for gradient ~ ]0, 25]</span>
+<span class="sd">        k (float): hyperparameters for hot function ~ [0, 20]</span>
+<span class="sd">        nb_iterations (int): number of iterations ~ 20</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Filtered image</span>
+<span class="sd">    """</span>
+
+    <span class="k">class</span> <span class="nc">Mask</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+        <span class="n">NORTH</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">north</span><span class="p">())</span>
+        <span class="n">SOUTH</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">south</span><span class="p">())</span>
+        <span class="n">WEST</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">west</span><span class="p">())</span>
+        <span class="n">EST</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">east</span><span class="p">())</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">u</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="n">k</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">image_n</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">masks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Mask</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nb_iterations</span><span class="p">):</span>
+
+        <span class="n">grad</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">c_dir</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="n">masks</span><span class="p">:</span>
+            <span class="n">grad</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve2d</span><span class="p">(</span><span class="n">image_n</span><span class="p">,</span> <span class="n">mask</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">'same'</span><span class="p">)</span>
+            <span class="n">c_dir</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">grad</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+
+        <span class="n">image_n</span> <span class="o">=</span> <span class="n">image_n</span> <span class="o">+</span> <span class="n">lamda</span> <span class="o">*</span> <span class="p">(</span>
+              <span class="n">grad</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">NORTH</span><span class="p">]</span> <span class="o">*</span> <span class="n">c_dir</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">NORTH</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">grad</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">EST</span><span class="p">]</span>   <span class="o">*</span> <span class="n">c_dir</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">EST</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">grad</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">WEST</span><span class="p">]</span>  <span class="o">*</span> <span class="n">c_dir</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">WEST</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">grad</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">SOUTH</span><span class="p">]</span> <span class="o">*</span> <span class="n">c_dir</span><span class="p">[</span><span class="n">Mask</span><span class="o">.</span><span class="n">SOUTH</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image_n</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.nolinear.wiener">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">nolinear</span><span class="o">.</span><span class="n">wiener</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">use_fft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Apply Wiener filter on image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>an image</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>kernel</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>a kernel</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>hyperparameter to avoid divide by zero</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>use_fft</code></td>
+<td>
+<code>typing.<span title="typing.Optional">Optional</span>[bool]</code>
+</td>
+<td><p>Apply numpy.fft.fftn
+on image and kernel. Defaults to False.</p></td>
+<td>
+<code>False</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Filtered image</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/nolinear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">wiener</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">use_fft</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Apply Wiener filter on image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (numpy.ndarray): an image</span>
+<span class="sd">        kernel (numpy.ndarray): a kernel</span>
+<span class="sd">        k (float): hyperparameter to avoid divide by zero</span>
+<span class="sd">        use_fft (typing.Optional[bool], optional): Apply numpy.fft.fftn</span>
+<span class="sd">            on image and kernel. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Filtered image</span>
+<span class="sd">    """</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">ker</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">use_fft</span> <span class="p">:</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">ker</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">ker</span><span class="p">)</span>
+
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">ker</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">ker</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">frac</span> <span class="o">*</span> <span class="n">img</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.nolinear.inverse">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">nolinear</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">use_fft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Apply Inverse filter on image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>an image</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>kernel</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>a kernel</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>use_fft</code></td>
+<td>
+<code>typing.<span title="typing.Optional">Optional</span>[bool]</code>
+</td>
+<td><p>Apply numpy.fft.fftn
+on image and kernel. Defaults to False.</p></td>
+<td>
+<code>False</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Filtered image</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/nolinear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">inverse</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">use_fft</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Apply Inverse filter on image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (numpy.ndarray): an image</span>
+<span class="sd">        kernel (numpy.ndarray): a kernel</span>
+<span class="sd">        use_fft (typing.Optional[bool], optional): Apply numpy.fft.fftn</span>
+<span class="sd">            on image and kernel. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Filtered image</span>
+<span class="sd">    """</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">ker</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">use_fft</span> <span class="p">:</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">ker</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">ker</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">img</span> <span class="o">/</span> <span class="n">ker</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.nolinear.pseudo_inverse">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">nolinear</span><span class="o">.</span><span class="n">pseudo_inverse</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">use_fft</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Apply Pseudo-Inverse filter on image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>an image</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>kernel</code></td>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>a kernel</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>threshold</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>threshold to avoid divivide by zero</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>use_fft</code></td>
+<td>
+<code>typing.<span title="typing.Optional">Optional</span>[bool]</code>
+</td>
+<td><p>Apply numpy.fft.fftn
+on image and kernel. Defaults to False.</p></td>
+<td>
+<code>False</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Filtered image</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/nolinear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">pseudo_inverse</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">use_fft</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Apply Pseudo-Inverse filter on image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (numpy.ndarray): an image</span>
+<span class="sd">        kernel (numpy.ndarray): a kernel</span>
+<span class="sd">        threshold (float): threshold to avoid divivide by zero</span>
+<span class="sd">        use_fft (typing.Optional[bool], optional): Apply numpy.fft.fftn</span>
+<span class="sd">            on image and kernel. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Filtered image</span>
+<span class="sd">    """</span>
+
+    <span class="n">img</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">ker</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">kernel</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">use_fft</span> <span class="p">:</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">ker</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftn</span><span class="p">(</span><span class="n">ker</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">threshold</span> <span class="o">&lt;=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">ker</span><span class="p">),</span> 
+        <span class="n">img</span> <span class="o">/</span> <span class="n">ker</span><span class="p">,</span> 
+        <span class="n">img</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../../javascripts/mermaid-refresh-theme.js"></script>
+</body>
+</html>

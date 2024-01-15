@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../.." rel="prev"/>
+<link href="../NoLinear/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
+<title>Linear - eagle-core</title>
+<link href="../../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#description">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="eagle-core" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="eagle-core">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            eagle-core
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Linear
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="eagle-core" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="eagle-core">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    eagle-core
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        Presentation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Package
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Package
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Filters
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          Filters
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Linear
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Linear
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.gaussian_filter2D">
+    gaussian_filter2D()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.north">
+    north()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.south">
+    south()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.west">
+    west()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.east">
+    east()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.laplacian">
+    laplacian()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.mean_filter">
+    mean_filter()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../NoLinear/">
+        No linear
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Differential/">
+        Differential
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Signal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Signal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Signal/Measure/">
+        Measure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Signal/Processing/">
+        Processing
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Io/">
+        IO (Input/Output)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Metrics/">
+        Metrics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Noise/">
+        Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Psf/">
+        Point Spread Functions (PSF)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Thresholding/">
+        Thresholding
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Types/">
+        Types
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Utils/">
+        Utils
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/differential/">
+        Differential
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/gradient_noise/">
+        Gradient Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/noise/">
+        Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/psf/">
+        Point Spread Functions (PSF)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Signal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Signal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/Signal/measure/">
+        Measure
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/thresholding/">
+        Thresholding
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Notebooks/types/">
+        Types
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.gaussian_filter2D">
+    gaussian_filter2D()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.north">
+    north()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.south">
+    south()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.west">
+    west()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.east">
+    east()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.laplacian">
+    laplacian()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.filters.linear.mean_filter">
+    mean_filter()
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="description">Description</h1>
+<p>Linear filters are filters that can used in dicrete convolution
+like <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html">scipy.signal.convolve2d</a></p>
+<hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.gaussian_filter2D">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">gaussian_filter2D</span><span class="p">(</span><span class="n">mu_0</span><span class="p">,</span> <span class="n">sigma_0</span><span class="p">,</span> <span class="n">size_0</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">sigma_1</span><span class="p">,</span> <span class="n">size_1</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get a gaussian filter 2D.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mu_0</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>Mean of axe 0</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>sigma_0</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>Variance of axe 0</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>size_0</code></td>
+<td>
+<code>int</code>
+</td>
+<td><p>Size of axe 0</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>mu_1</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>Mean of axe 1</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>sigma_1</code></td>
+<td>
+<code>float</code>
+</td>
+<td><p>Variance of axe 1</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>size_1</code></td>
+<td>
+<code>int</code>
+</td>
+<td><p>Size of axe 1</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Gaussian filter 2D with size/shape of (size_0, size_1)</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">gaussian_filter2D</span><span class="p">(</span>
+    <span class="n">mu_0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sigma_0</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">size_0</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">mu_1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sigma_1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">size_1</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get a gaussian filter 2D.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mu_0 (float): Mean of axe 0</span>
+<span class="sd">        sigma_0 (float): Variance of axe 0</span>
+<span class="sd">        size_0 (int): Size of axe 0</span>
+<span class="sd">        mu_1 (float): Mean of axe 1</span>
+<span class="sd">        sigma_1 (float): Variance of axe 1</span>
+<span class="sd">        size_1 (int): Size of axe 1</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Gaussian filter 2D with size/shape of (size_0, size_1) </span>
+<span class="sd">    """</span>
+    <span class="n">axe0_values</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="n">size_0</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> 
+        <span class="n">stop</span> <span class="o">=</span> <span class="n">size_0</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> 
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">axe1_values</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="o">-</span><span class="n">size_1</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> 
+        <span class="n">stop</span> <span class="o">=</span> <span class="n">size_1</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> 
+        <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="p">[</span> <span class="n">axe0_values</span><span class="p">,</span> <span class="n">axe1_values</span> <span class="p">])</span>
+
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">eaglecore</span><span class="o">.</span><span class="n">psf</span><span class="o">.</span><span class="n">gaussian2d</span><span class="p">(</span>
+        <span class="n">mu_0</span> <span class="o">=</span> <span class="n">mu_0</span><span class="p">,</span> <span class="n">sigma_0</span> <span class="o">=</span> <span class="n">sigma_0</span><span class="p">,</span> <span class="n">x_0</span> <span class="o">=</span> <span class="n">x_0</span><span class="p">,</span>
+        <span class="n">mu_1</span> <span class="o">=</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">sigma_1</span> <span class="o">=</span> <span class="n">sigma_1</span><span class="p">,</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">x_1</span> 
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">filter</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.north">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">north</span><span class="p">()</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get North filter.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>North filter</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">north</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get North filter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        North filter</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.south">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">south</span><span class="p">()</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get South filter.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>South filter</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">south</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get South filter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        South filter</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.west">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">west</span><span class="p">()</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get West filter.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>West filter</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">west</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get West filter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        West filter</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.east">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">east</span><span class="p">()</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get East filter.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>East filter</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span>
+<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">east</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get East filter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        East filter</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.laplacian">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">laplacian</span><span class="p">()</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get Laplacian filter.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Laplacian filter</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">laplacian</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get Laplacian filter.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Laplacian filter</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="eaglecore.filters.linear.mean_filter">
+<code class="highlight language-python"><span class="n">eaglecore</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">mean_filter</span><span class="p">(</span><span class="n">size</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Get Mean filter.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size</code></td>
+<td>
+<code>typing.<span title="typing.Union">Union</span>[numpy.<span title="numpy.ndarray">ndarray</span>, tuple]</code>
+</td>
+<td><p>Size of filter</p></td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>numpy.<span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td><p>Mean filter</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/filters/linear.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">mean_filter</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get Mean filter.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        size (typing.Union[numpy.ndarray, tuple]): Size of filter</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Mean filter</span>
+<span class="sd">    """</span>
+    <span class="nb">filter</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+    <span class="nb">filter</span> <span class="o">/=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">filter</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><hr/>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../../javascripts/mermaid-refresh-theme.js"></script>
+</body>
+</html>

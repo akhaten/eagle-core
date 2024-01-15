@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../Thresholding/" rel="prev"/>
+<link href="../Utils/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
+<title>Types - eagle-core</title>
+<link href="../../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#description">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="eagle-core" class="md-header__button md-logo" data-md-component="logo" href="../.." title="eagle-core">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            eagle-core
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Types
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="eagle-core" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="eagle-core">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    eagle-core
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Presentation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Package
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Package
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Filters
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          Filters
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Filters/Linear/">
+        Linear
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Filters/NoLinear/">
+        No linear
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Differential/">
+        Differential
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Signal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Signal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Signal/Measure/">
+        Measure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Signal/Processing/">
+        Processing
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Io/">
+        IO (Input/Output)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Metrics/">
+        Metrics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Noise/">
+        Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Psf/">
+        Point Spread Functions (PSF)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Thresholding/">
+        Thresholding
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Types
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Types
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr_db">
+    snr_db
+  </a>
+<nav aria-label="snr_db" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr_db.to_linear">
+    to_linear()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr">
+    snr
+  </a>
+<nav aria-label="snr" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr.to_dB">
+    to_dB()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Utils/">
+        Utils
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Notebooks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Notebooks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/differential/">
+        Differential
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/gradient_noise/">
+        Gradient Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/noise/">
+        Noise
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/psf/">
+        Point Spread Functions (PSF)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Signal
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          Signal
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/Signal/measure/">
+        Measure
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/thresholding/">
+        Thresholding
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Notebooks/types/">
+        Types
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr_db">
+    snr_db
+  </a>
+<nav aria-label="snr_db" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr_db.to_linear">
+    to_linear()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr">
+    snr
+  </a>
+<nav aria-label="snr" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eaglecore.types.snr.to_dB">
+    to_dB()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="description">Description</h1>
+<hr/>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="eaglecore.types.snr_db">
+<code>eaglecore.types.snr_db</code>
+</h2>
+<div class="doc doc-contents first">
+<p class="doc doc-class-bases">
+        Bases: <code>float</code></p>
+<p>Class to represent Signal to Noise ratio in dB.</p>
+<details class="quote">
+<summary>Source code in <code>eaglecore/types.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">snr_db</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Class to represent Signal to Noise ratio in dB.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> [dB]'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">to_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'snr'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Convert to SNR in linear.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            linear SNR</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">snr</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="bp">self</span> <span class="o">/</span> <span class="mi">10</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="eaglecore.types.snr_db.to_linear">
+<code class="highlight language-python"><span class="n">to_linear</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Convert to SNR in linear.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code><a class="autorefs autorefs-internal" title="eaglecore.types.snr" href="#eaglecore.types.snr">snr</a></code>
+</td>
+<td><p>linear SNR</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/types.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'snr'</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Convert to SNR in linear.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        linear SNR</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">snr</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="bp">self</span> <span class="o">/</span> <span class="mi">10</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div><details class="note">
+<summary>Formula</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Render</label><label for="__tabbed_1_2">Latex</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="arithmatex">\[\begin{align}
+SNR_{dB} &amp;= 10 \times log_{10}(SNR) \\
+\frac{SNR_{dB}}{10} &amp;= log_{10}(SNR) \\
+SNR &amp;= 10^{\frac{SNR_{dB}}{10}}
+\end{align}\]</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+SNR<span class="nb">_{</span>dB<span class="nb">}</span> <span class="nb">&amp;</span>= 10 <span class="k">\times</span> log<span class="nb">_{</span>10<span class="nb">}</span>(SNR) <span class="k">\\</span>
+<span class="k">\frac</span><span class="nb">{</span>SNR<span class="nb">_{</span>dB<span class="nb">}}{</span>10<span class="nb">}</span> <span class="nb">&amp;</span>= log<span class="nb">_{</span>10<span class="nb">}</span>(SNR) <span class="k">\\</span>
+SNR <span class="nb">&amp;</span>= 10<span class="nb">^{</span><span class="k">\frac</span><span class="nb">{</span>SNR<span class="nb">_{</span>dB<span class="nb">}}{</span>10<span class="nb">}}</span>
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</details>
+<details class="warning">
+<summary>Warning</summary>
+<p>Do not confusion with formula using amplitudes. 
+See <a href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio">wiki</a>.</p>
+</details>
+<hr/>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="eaglecore.types.snr">
+<code>eaglecore.types.snr</code>
+</h2>
+<div class="doc doc-contents first">
+<p class="doc doc-class-bases">
+        Bases: <code>float</code></p>
+<p>Class to represent Signal to Noise ratio in linear.</p>
+<details class="quote">
+<summary>Source code in <code>eaglecore/types.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">snr</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Class to represent Signal to Noise ratio in linear.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> [linear]'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">to_dB</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'snr_db'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Convert to SNR in dB.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            SNR in dB</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">snr_db</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="eaglecore.types.snr.to_dB">
+<code class="highlight language-python"><span class="n">to_dB</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Convert to SNR in dB.</p>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code><a class="autorefs autorefs-internal" title="eaglecore.types.snr_db" href="#eaglecore.types.snr_db">snr_db</a></code>
+</td>
+<td><p>SNR in dB</p></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>eaglecore/types.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_dB</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'snr_db'</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Convert to SNR in dB.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        SNR in dB</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">snr_db</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div><details class="note">
+<summary>Formula</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Render</label><label for="__tabbed_2_2">Latex</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="arithmatex">\[\begin{align}
+SNR &amp;= 10^{\frac{SNR_{dB}}{10}} \\
+\frac{SNR_{dB}}{10} &amp;= log_{10}(SNR) \\
+SNR_{dB} &amp;= 10 \times log_{10}(SNR) \\
+\end{align}\]</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+SNR<span class="nb">_{</span>dB<span class="nb">}</span> <span class="nb">&amp;</span>= 10 <span class="k">\times</span> log<span class="nb">_{</span>10<span class="nb">}</span>(SNR) <span class="k">\\</span>
+<span class="k">\frac</span><span class="nb">{</span>SNR<span class="nb">_{</span>dB<span class="nb">}}{</span>10<span class="nb">}</span> <span class="nb">&amp;</span>= log<span class="nb">_{</span>10<span class="nb">}</span>(SNR) <span class="k">\\</span>
+SNR <span class="nb">&amp;</span>= 10<span class="nb">^{</span><span class="k">\frac</span><span class="nb">{</span>SNR<span class="nb">_{</span>dB<span class="nb">}}{</span>10<span class="nb">}}</span>
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</details>
+<details class="warning">
+<summary>Warning</summary>
+<p>Do not confusion with formula using amplitudes. 
+See <a href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio">wiki</a>.</p>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../../javascripts/mermaid-refresh-theme.js"></script>
+</body>
+</html>
