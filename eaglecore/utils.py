@@ -20,7 +20,7 @@ def fourier_diagonalization(kernel: numpy.ndarray, shape_out: numpy.ndarray) -> 
 
     Args:
         kernel (numpy.ndarray): filter/kernel for diagonalization
-        shape_out (numpy.ndarray): dimesion of output
+        shape_out (numpy.ndarray): shape of output
 
     Returns:
         diagonalized kernel in Fourier space

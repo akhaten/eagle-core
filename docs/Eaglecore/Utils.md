@@ -25,8 +25,6 @@
 
     ??? note "Step 1 : Build circshifted kernel"
 
-        We identify the center of matrix then we place like first element of matrix.
-
         === "Render"
             
             \begin{align}
@@ -69,8 +67,6 @@
             \end{align}
             ```
     ??? note "Step 2 : Build first column of BCCB matrix"
-
-        For build first column of $H_{BCCB}$, we stack each columns of circshifted kernel in vector.
 
         === "Render"
             
@@ -124,8 +120,6 @@
             \end{align}
             ```
     ??? note "Step 3 : Build first column-block of BCCB matrix"
-
-        For build first column of $H_{BCCB}$, we stack each columns of circshifted kernel in vector.
 
         === "Render"
             
@@ -218,8 +212,6 @@
             ```
 
     ??? note "Step 4 : Build others columns-blocks of BCCB matrix"
-
-        For build first column of $H_{BCCB}$, we stack each columns of circshifted kernel in vector.
 
         === "Render"
             
