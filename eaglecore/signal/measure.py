@@ -9,11 +9,6 @@ def energy(signal: numpy.ndarray) -> float:
 
     Returns:
         energy of signal
-        
-    Notes:
-        Signal can be complex because Perceval theorem says
-        that the energy in real domain is equal to the energy
-        in Fourier (ie complex) domain.
     """
     
     out = 0.0

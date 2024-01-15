@@ -34,8 +34,8 @@ flowchart TD
     Signal --> Measure[measure]
     Signal --> Processing[processing]
 
-    click Differential "http://127.0.0.1:8000/Eaglecore/Differential/" _blank
 ```
+<!-- click Differential "http://127.0.0.1:8000/Eaglecore/Differential/" _blank -->
 
 ---
 
@@ -43,7 +43,7 @@ flowchart TD
 
 ### Nix package manager
 
-The [default.nix]() file defines the configuration to build this package
+The [default.nix](https://github.com/akhaten/eagle-core/blob/main/default.nix) file defines the configuration to build this package
 with nix.
 
 

@@ -54,19 +54,26 @@ def make_bccb(kernel: numpy.ndarray) -> numpy.ndarray:
     Returns:
         BCCB matrix for the kernel
     """
-    N, M = kernel.shape
     
+    # Step 1 : Build circshifted kernel
+    center = numpy.array(kernel.shape) // 2
+    kernel_circshifted = circshift(kernel, -center)
+    
+    # Step 2 : Build first column of BCCB matrix
     dim = numpy.prod(numpy.array(kernel.shape))
-    kernel_cpy = numpy.copy(kernel)
-    
-    first_column = numpy.reshape(kernel_cpy.T, newshape=dim)
+    first_column = numpy.reshape(kernel_circshifted, newshape=dim)
     kernel_bccb = numpy.zeros(shape=(dim, dim))
     kernel_bccb[:, 0] = first_column
 
+    # Step 3 : Build first column-block of BCCB matrix
+    
+    N, M = kernel.shape
+    
     for j in range(1, M):
         for i in range(0, M*N, N):
             kernel_bccb[i:i+N, j] = numpy.roll(kernel_bccb[i:i+N, j-1], 1)
 
+    # Step 4 : Build others columns-blocks of BCCB matrix
     for j in range(1, M):
         kernel_bccb[:, N*j: N*j+N] = numpy.roll(
             kernel_bccb[:, N*(j-1): N*(j-1)+N], (N, 0), (0, 1)
