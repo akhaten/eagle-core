@@ -3,15 +3,15 @@
 
 let pkgs = import <nixpkgs> { inherit system; };
 
-in pkgs.python310Packages.buildPythonPackage {
+in pkgs.python311Packages.buildPythonPackage {
 	name = "eaglecore";
 	version = "0.1";
 	src = ./.;
 	propagatedBuildInputs = with pkgs; [
-		python310
-        python310Packages.numpy
-        python310Packages.scipy
-        python310Packages.matplotlib
+		python311
+        python311Packages.numpy
+        python311Packages.scipy
+        python311Packages.matplotlib
         # python310Packages.pandas
         # python310Packages.tqdm
 	];
