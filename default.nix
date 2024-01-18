@@ -4,7 +4,7 @@
 pkgs.python311Packages.buildPythonPackage {
 	name = "eaglecore";
 	version = "0.1";
-	src = ./.;
+	src = ./eaglecore;
 	propagatedBuildInputs = with pkgs; [
 		python311
         python311Packages.numpy
