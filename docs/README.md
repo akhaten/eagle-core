@@ -67,7 +67,7 @@ with nix.
 
 By title of example, in your own `shell.nix` file, you can do :
 ```nix
-{ pkgs ? import <nixpkgs> {}, lib, ... }:
+{ pkgs ? import <nixpkgs> {} }:
 
 let 
 
@@ -76,13 +76,12 @@ let
     repo = "eaglecore";
     rev = "the/full/id/of/commit";
     sha256 = "sha256-0000000000000000000000000000000000000000000=";
-    #sha256 = lib.fakeSha256;
   };
         
 in pkgs.mkShell {
 
     buildInputs = with pkgs; [
-      callPackage eaglecore {} # Use default.nix in the repo
+      eaglecore
       # Yours others packages
       # ...
     ];
