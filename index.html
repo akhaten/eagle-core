@@ -393,7 +393,7 @@ Documentation is available <a href="https://akhaten.github.io/eaglecore/">here</
 <p>The <a href="https://github.com/akhaten/eaglecore/blob/main/default.nix">default.nix</a> file defines the configuration to build this package
 with nix.</p>
 <p>By title of example, in your own <code>shell.nix</code> file, you can do :
-<div class="highlight"><pre><span></span><code><span class="p">{</span> pkgs <span class="o">?</span> <span class="nb">import</span> <span class="l">&lt;nixpkgs&gt;</span> <span class="p">{},</span> lib<span class="p">,</span> <span class="o">...</span> <span class="p">}:</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span> pkgs <span class="o">?</span> <span class="nb">import</span> <span class="l">&lt;nixpkgs&gt;</span> <span class="p">{}</span> <span class="p">}:</span>
 
 <span class="k">let</span> 
 
@@ -402,13 +402,12 @@ with nix.</p>
     <span class="ss">repo =</span> <span class="s2">"eaglecore"</span><span class="p">;</span>
     <span class="ss">rev =</span> <span class="s2">"the/full/id/of/commit"</span><span class="p">;</span>
     <span class="ss">sha256 =</span> <span class="s2">"sha256-0000000000000000000000000000000000000000000="</span><span class="p">;</span>
-    <span class="c1">#sha256 = lib.fakeSha256;</span>
   <span class="p">};</span>
 
 <span class="k">in</span> pkgs<span class="o">.</span>mkShell <span class="p">{</span>
 
     <span class="ss">buildInputs =</span> <span class="k">with</span> pkgs<span class="p">;</span> <span class="p">[</span>
-      callPackage eaglecore <span class="p">{}</span> <span class="c1"># Use default.nix in the repo</span>
+      <span class="p">(</span>callPackage eaglecore <span class="p">{})</span>
       <span class="c1"># Yours others packages</span>
       <span class="c1"># ...</span>
     <span class="p">];</span>
