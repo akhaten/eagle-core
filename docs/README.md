@@ -81,7 +81,7 @@ let
 in pkgs.mkShell {
 
     buildInputs = with pkgs; [
-      eaglecore
+      (callPackage eaglecore {})
       # Yours others packages
       # ...
     ];
