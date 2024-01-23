@@ -4,42 +4,42 @@ pkgs.mkShell {
 
     buildInputs = with pkgs; [
 
-        python310
+        python311
 
-        # python310Packages.multimethod
+        # python311Packages.multimethod
 
-        python310Packages.numpy
-        python310Packages.scipy
-        python310Packages.matplotlib
-        python310Packages.pandas
-        python310Packages.tqdm
+        python311Packages.numpy
+        python311Packages.scipy
+        python311Packages.matplotlib
+        python311Packages.pandas
+        python311Packages.tqdm
 
         # Package for Jupyter / To comment
-        python310Packages.ipywidgets
-        python310Packages.ipykernel
-        python310Packages.ipympl
-        python310Packages.ipython
+        python311Packages.ipywidgets
+        python311Packages.ipykernel
+        python311Packages.ipympl
+        python311Packages.ipython
         
         # TO DELETE
-        # python310Packages.scikitimage
-        # python310Packages.scikit-learn
+        # python311Packages.scikitimage
+        # python311Packages.scikit-learn
 
-        python310Packages.mkdocs
-        python310Packages.mkdocstrings
-        python310Packages.mkdocstrings-python
-        python310Packages.mkdocs-material
-        python310Packages.mkdocs-jupyter
-        python310Packages.pymdown-extensions
-        # python310Packages.mkdocs-autorefs
-        # python310Packages.mkdocs-redirects
-        # python310Packages.mkdocs-swagger-ui-tag
-        # python310Packages.mkdocs-material-extensions
-        # python310Packages.mkdocs-minify
-        python310Packages.mkdocs-mermaid2-plugin
-        # python310Packages.mkdocs-exclude
-        # python310Packages.mkdocs-simple-hooks
-        # python310Packages.mkdocs-macros
-        # python310Packages.mkdocs-drawio-exporter        
+        python311Packages.mkdocs
+        python311Packages.mkdocstrings
+        python311Packages.mkdocstrings-python
+        python311Packages.mkdocs-material
+        python311Packages.mkdocs-jupyter
+        python311Packages.pymdown-extensions
+        # python311Packages.mkdocs-autorefs
+        # python311Packages.mkdocs-redirects
+        # python311Packages.mkdocs-swagger-ui-tag
+        # python311Packages.mkdocs-material-extensions
+        # python311Packages.mkdocs-minify
+        python311Packages.mkdocs-mermaid2-plugin
+        # python311Packages.mkdocs-exclude
+        # python311Packages.mkdocs-simple-hooks
+        # python311Packages.mkdocs-macros
+        # python311Packages.mkdocs-drawio-exporter        
 
     ];
 
