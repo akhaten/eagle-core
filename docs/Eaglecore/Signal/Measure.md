@@ -41,8 +41,8 @@
         ```
 
 
-??? tip "Perseval's theorem"
-    Signal can be complex because Perseval theorem says
+??? tip "Parseval's theorem"
+    Signal can be complex because Parseval theorem says
     that the energy in real domain is equal to the energy
     in Fourier (ie complex) domain.
 
