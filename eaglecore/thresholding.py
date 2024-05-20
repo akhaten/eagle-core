@@ -47,13 +47,25 @@ def singular_value(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
         thresholded data
     """
     
+    # # Decomposition
+    # u, s, vh = numpy.linalg.svd(x)
+    # # Thresholding
+    # singular_value_max = numpy.max(s)
+    # s[s < threshold*singular_value_max] = 0.0
+    # # Reconstruction
+    # res = numpy.dot(u * s, vh)
+    
     # Decomposition
-    u, s, vh = numpy.linalg.svd(x)
+    p, d, q = numpy.linalg.svd(x, full_matrices=False)
     # Thresholding
-    singular_value_max = numpy.max(s)
-    s[s < threshold*singular_value_max] = 0.0
+    singular_value_max = numpy.max(d)
+    d[d < threshold*singular_value_max] = 0.0
     # Reconstruction
-    res = numpy.dot(u * s, vh)
+    res = p @ numpy.diag(d) @ q
+    
+    
+    
+    
     return res
 
 
@@ -68,13 +80,24 @@ def singular_value_soft(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
         thresholded data
     """
    
+    # # Decomposition
+    # u, s, vh = numpy.linalg.svd(x)
+    # # Thresholding with 
+    # # singular_value_max = numpy.max(s)
+    # s_diag = numpy.diag(s)
+    # s_diag = soft(s_diag, threshold)
+    # s = numpy.diag(s_diag)
+    # # Reconstruction
+    # res = numpy.dot(u * s, vh)
+    
+    
     # Decomposition
-    u, s, vh = numpy.linalg.svd(x)
+    p, d, q = numpy.linalg.svd(x, full_matrices=False)
     # Thresholding with 
     # singular_value_max = numpy.max(s)
-    s_diag = numpy.diag(s)
-    s_diag = soft(s_diag, threshold)
-    s = numpy.diag(s_diag)
+    d = numpy.diag(d)
+    d = soft(d, threshold)
     # Reconstruction
-    res = numpy.dot(u * s, vh)
+    res = p @ numpy.diag(d) @ q
+    
     return res
