@@ -98,6 +98,6 @@ def singular_value_soft(x: numpy.ndarray, threshold: float) -> numpy.ndarray:
     d = numpy.diag(d)
     d = soft(d, threshold)
     # Reconstruction
-    res = p @ numpy.diag(d) @ q
+    res = p @ d @ q
     
     return res
